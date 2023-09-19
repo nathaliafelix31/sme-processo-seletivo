@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <link rel ="shortcut icon" href="https://www.itacarambi.mg.gov.br/img/logo_mobile.png?1678302142">
+    <title>Listar Candidatos</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper blue darken-1">
+            <a href="#!" class="brand-logo">Processo Seletivo 2024</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Edital</a></li>
+                <li><a href="#">Cronograma do Candidato</a></li>
+            </ul>
+        </div>
+     </nav>
+
+    <h3>Lista dos Candidatos</h3>
+    <h3>Lista dos Candidatos</h3>
+    <h3>Lista dos Candidatos</h3>
+
+
+
+    <div class="row">
+        <p><span>7</span></p>
+        <p><span>7</span></p>
+        <p><span>7</span></p>
+
+    </div>
+    <!--  <div th:each="candidato : ${candidatos}">
+        <div class="row">
+            <p><span th:text="${candidato.nome}"></span></p>
+        </div>
+    </div>
+ -->
+
+  <!--  <div th:insert="fragments/publica-nav :: nav"></div>-->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4>Lista</h4>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Data de Nascimento</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="candidato : ${candidatos}">
+                    <tr>
+                        <td><span th:text="${candidato.codigo}">Código</span></td>
+                        <td><span th:text="${candidato.nome}">Nome</span></td>
+                        <td><span th:text="${#dates.format(candidato.dataNascimento, 'dd/MM/yyyy')}">Data de Nascimento</span></td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+</body>
+</html>

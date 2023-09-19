@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <link rel ="shortcut icon" href="https://www.itacarambi.mg.gov.br/img/logo_mobile.png?1678302142">
+        <title>SME</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/materialize/css/style.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">EM Amerindo Bezerra</a></li>
+            <li><a href="#!">EM Carmem Maria Andrade Nogueira</a></li>
+            <li><a href="#!">EM Dona Amélia Pacheco</a></li>
+            <li><a href="#!">EM Noeme Sales Nascimento</a></li>
+            <li><a href="#!">EM Osório Evangelista dos Santos</a></li>
+            <li><a href="#!">EM Padre Diogo Feijó</a></li>
+        </ul>
+        <nav>
+            <div class="nav-wrapper blue darken-1">
+                <a href="#!" class="brand-logo">SME - Secretaria Municipal de Educação</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#"><i class="material-icons left">search</i>Buscar no Portal</a></li>
+                    <li><a href="/processoSeletivo">Processo Seletivo 2024</a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Escolas<i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="carousel carousel-slider">
+                <a class="carousel-item" href="#one!"><img src="https://www.ifnmg.edu.br/administrator/2023/RIEONLIFE_-_WLC_BANNER_SITE_800X173PX1_novo.png"></a>
+                <a class="carousel-item" href="#two!"><img src="https://www.ifnmg.edu.br/arquivos/2023/Cursos_Norteja_Banner.png"></a>
+                <a class="carousel-item" href="#three!"><img src="https://www.ifnmg.edu.br/arquivos/2023/IFintegra_-_banner_para_portal_3.png"></a>
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+            <script>
+
+                $(document).ready(function(){
+                    $(".dropdown-trigger").dropdown();
+                    $('.carousel.carousel-slider').carousel({
+                        fullWidth: true,
+                        duration: 200,
+                        indicators: true,
+                     });
+
+                     setInterval(() => {
+                        $('.carousel').carousel('next');
+                      }, 3000)
+                });
+
+           </script>
+    </body>
+</html>

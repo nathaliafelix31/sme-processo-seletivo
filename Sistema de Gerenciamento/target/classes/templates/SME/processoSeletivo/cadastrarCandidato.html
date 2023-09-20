@@ -74,11 +74,12 @@
         <div class="row">
           <div class="input-field col s6">
               <select name="vaga">
+                <option value="" disabled selected>Selecione</option>
                 <option value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
                 <option value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
-                <option value="Profº dos Anos Finais do Ensino Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
-                <option value="Profº de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental">Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
-                <option value="Especialista em Educação">Especialista em Educação</option>
+                <option value="Profº dos Anos Finais do Ensino Fundamental" id="select">Profº. dos Anos Finais do Ensino Fundamental</option>
+                <option value="Profº de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental" >Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
+                <option value="Especialista em Educação" >Especialista em Educação</option>
                 <option value="Auxiliar de Serviço Escolar">Auxiliar de Serviço Escolar</option>
                 <option value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
                 <option value="Assistente Técnico da Educação Básica">Assistente Técnico da Educação Básica</option>
@@ -92,11 +93,29 @@
               <label>Cargo Pleitado</label>
             </div>
 
+
+            <div class="input-field col s3">
+              <select name="disciplina">
+                <option value="" disabled selected>Selecione</option>
+                <option value="Línqua Portuguesa">Línqua Portuguesa</option>
+                <option value="Matemática">Matemática</option>
+                <option value="História">História</option>
+                <option value="Geografia">Geografiar</option>
+                <option value="Ciências">Ciências</option>
+                <option value="Inglês">Inglês</option>
+                <option value="Ensino Religioso">Ensino Religioso</option>
+                <option value="Arte">Arte</option>
+              </select>
+              <label>Disciplina</label>
+            </div>
+        </div>
+        <div class="row">
           <div class="input-field col s6">
             <input placeholder="informe o tempo em de serviço" id="tempoServico" type="text" class="validate" name="tempoServico">
             <label for="tempoServico">Tempo de Serviço no cargo pleiteado no Município de Itacarambi</label>
           </div>
         </div>
+
 
         <div class="row">
           <div class="input-field col s12">
@@ -146,7 +165,15 @@
     <script>
       $(document).ready(function(){
          $('select').formSelect();
+
       });
+      $(document).ready(function(){
+          $('#select').on('change',function(){
+            var selectValor = '#'+s$(this).val();
+            $('#disciplina').children('div').hide();
+            $('#disciplina').children(electValor).show();
+            }
+     });
     </script>
 
 

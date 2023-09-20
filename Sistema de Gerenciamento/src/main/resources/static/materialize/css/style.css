@@ -60,3 +60,6 @@
         width: 90%;
     }
 }
+#disciplina div{
+    display: none;
+}

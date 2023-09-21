@@ -22,16 +22,6 @@
         </div>
      </nav>
 
-    <h3>Lista dos Candidatos</h3>
-    <h3>Lista dos Candidatos</h3>
-    <h3>Lista dos Candidatos</h3>
-
-
-    <div class="row">
-        <p><span>7</span></p>
-        <p><span>7</span></p>
-        <p><span>7</span></p>
-    </div>
     <!--  <div th:each="candidato : ${candidatos}">
         <div class="row">
             <p><span th:text="${candidato.nome}"></span></p>
@@ -47,17 +37,17 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Data de Nascimento</th>
+                        <th class="center">Código</th>
+                        <th class="center">Nome</th>
+                        <th class="center">Data de Nascimento</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="candidato : ${candidatos}">
-                    <tr>
-                        <td><span th:text="${candidato.codigo}">Código</span></td>
-                        <td><span th:text="${candidato.nome}">Nome</span></td>
-                        <td><span th:text="${#dates.format(candidato.dataNascimento, 'dd/MM/yyyy')}">Data de Nascimento</span></td>
+                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                        <td class="center"><span th:text="${candidato.nome}">Nome</span></td>
+                        <td class="center"><span th:text="${candidato.dataNascimento}">Data de Nascimento</span></td>
+<!--                        <td class="center"><span th:text="${#dates.format(candidato.dataNascimento, 'dd/MM/yyyy')}">Data de Nascimento</span></td>-->
                     </tr>
                     </tbody>
 

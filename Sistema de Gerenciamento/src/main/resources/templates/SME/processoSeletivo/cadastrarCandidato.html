@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/materialize/css/styleTest.css"  media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
@@ -26,8 +27,8 @@
     </nav>
 
     <h4><center>Cadastro de Reserva de Vagas 2024</center></h4>
-    <div class="row">
-      <form class="container" method="post">
+    <div class="row" >
+      <form id="box" class="container" method="post">
         <div class="row">
           <div class="input-field col s12">
             <input placeholder="Digite seu nome completo" id="full_name" type="text" class="validate" name="nome">
@@ -66,20 +67,19 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Digite seu endereço completo" id="endereco" type="email" class="validate" name="endereco">
+            <input placeholder="Digite seu endereço completo" id="endereco" type="text" class="validate" name="endereco">
             <label for="endereco">Endereço Completo</label>
           </div>
         </div>
-
         <div class="row">
-          <div class="input-field col s6">
-              <select name="vaga">
+          <div class="input-field col s6" >
+              <select id="select" name="vaga">
                 <option value="" disabled selected>Selecione</option>
                 <option value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
                 <option value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
-                <option value="Profº dos Anos Finais do Ensino Fundamental" id="select">Profº. dos Anos Finais do Ensino Fundamental</option>
-                <option value="Profº de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental" >Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
-                <option value="Especialista em Educação" >Especialista em Educação</option>
+                <option value="Prof_dos_Anos_Finais_do_Ensino_Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
+                <option value="Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental" >Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
+                <option value="Especialista em Educação">Especialista em Educação</option>
                 <option value="Auxiliar de Serviço Escolar">Auxiliar de Serviço Escolar</option>
                 <option value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
                 <option value="Assistente Técnico da Educação Básica">Assistente Técnico da Educação Básica</option>
@@ -93,24 +93,26 @@
               <label>Cargo Pleitado</label>
             </div>
 
-
-            <div class="input-field col s3">
-              <select name="disciplina">
-                <option value="" disabled selected>Selecione</option>
-                <option value="Línqua Portuguesa">Línqua Portuguesa</option>
-                <option value="Matemática">Matemática</option>
-                <option value="História">História</option>
-                <option value="Geografia">Geografiar</option>
-                <option value="Ciências">Ciências</option>
-                <option value="Inglês">Inglês</option>
-                <option value="Ensino Religioso">Ensino Religioso</option>
-                <option value="Arte">Arte</option>
-              </select>
-              <label>Disciplina</label>
+            <div class="input-field col s3" id="pai">
+              <div id="Prof_dos_Anos_Finais_do_Ensino_Fundamental">
+                <select name="disciplina">
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="Línqua Portuguesa">Línqua Portuguesa</option>
+                  <option value="Matemática">Matemática</option>
+                  <option value="História">História</option>
+                  <option value="Geografia">Geografia</option>
+                  <option value="Ciências">Ciências</option>
+                  <option value="Inglês">Inglês</option>
+                  <option value="Ensino Religioso">Ensino Religioso</option>
+                  <option value="Arte">Arte</option>
+                </select>
+                <label>Disciplina</label>
+              </div>
             </div>
+
         </div>
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s8">
             <input placeholder="informe o tempo em de serviço" id="tempoServico" type="text" class="validate" name="tempoServico">
             <label for="tempoServico">Tempo de Serviço no cargo pleiteado no Município de Itacarambi</label>
           </div>
@@ -148,13 +150,14 @@
           </div>
 
           <div class="input-field col s3">
-            <input placeholder="informe a carga horária" id="cargaHoraria" type="text" class="validate" name="cargaHoraria">
+            <input placeholder="informe a carga horária" id="cargaHoraria" type="text" class="validate" name="cargaHoraria" value="0">
             <label for="cargaHoraria">Carga Horária</label>
           </div>
-        </div>
+      </div>
 
-        <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-          <i class="material-icons right">send</i>
+     <!--   ;-->
+        <button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i>
+
         </button>
       </form>
 
@@ -166,14 +169,15 @@
       $(document).ready(function(){
          $('select').formSelect();
 
+
+        $('#select').on('change',function(){
+        var selectValor = '#'+$(this).val();
+        $('#pai').children('div').hide();
+        $('#pai').children(selectValor).show();
+
+            });
+
       });
-      $(document).ready(function(){
-          $('#select').on('change',function(){
-            var selectValor = '#'+s$(this).val();
-            $('#disciplina').children('div').hide();
-            $('#disciplina').children(electValor).show();
-            }
-     });
     </script>
 
 

@@ -45,10 +45,6 @@
     align-items: center;
 }
 
-.center {
-    text-align: center;
-}
-
 .articles {
     display: flex;
     justify-content: space-between;
@@ -63,7 +59,4 @@
     .container .carousel img {
         width: 90%;
     }
-}
-#disciplina div{
-    display: none;
 }

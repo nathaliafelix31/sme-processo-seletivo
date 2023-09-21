@@ -16,48 +16,35 @@
         <div class="nav-wrapper blue darken-1">
             <a href="#!" class="brand-logo">Processo Seletivo 2024</a>
             <ul class="right hide-on-med-and-down">
+                <li><a href="/">Páginal Inicial</a></li>
                 <li><a href="#">Edital</a></li>
                 <li><a href="#">Cronograma do Candidato</a></li>
             </ul>
         </div>
      </nav>
 
-    <h3>Lista dos Candidatos</h3>
-    <h3>Lista dos Candidatos</h3>
-    <h3>Lista dos Candidatos</h3>
-
-
-    <div class="row">
-        <p><span>7</span></p>
-        <p><span>7</span></p>
-        <p><span>7</span></p>
-    </div>
-    <!--  <div th:each="candidato : ${candidatos}">
-        <div class="row">
-            <p><span th:text="${candidato.nome}"></span></p>
-        </div>
-    </div>
-
--->
 
    <div class="container">
         <div class="row">
             <div class="col">
-                <h4>Lista</h4>
+                <h4>Lista dos Candidatos Inscritos</h4>
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
-                        <th>Data de Nascimento</th>
+                        <th>CPF</th>
+                        <th>Cargo Pleitado</th>
                     </tr>
                     </thead>
                     <tbody>
+
+
                     <tr th:each="candidato : ${candidatos}">
-                    <tr>
-                        <td><span th:text="${candidato.codigo}">Código</span></td>
-                        <td><span th:text="${candidato.nome}">Nome</span></td>
-                        <td><span th:text="${#dates.format(candidato.dataNascimento, 'dd/MM/yyyy')}">Data de Nascimento</span></td>
+                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
                     </tr>
                     </tbody>
 

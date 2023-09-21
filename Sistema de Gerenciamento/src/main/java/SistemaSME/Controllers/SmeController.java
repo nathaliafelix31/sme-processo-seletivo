@@ -21,7 +21,7 @@ import java.util.List;
 public class SmeController {
 
     @Autowired
-    private ProcessoSeletivoRepository ps;
+    private ProcessoSeletivoRepository processoSeletivoRepository;
 
     @RequestMapping(value="/")
     public String sme(){
@@ -42,22 +42,26 @@ public class SmeController {
 
     @RequestMapping(value="/processoSeletivo/cadastrarCandidato", method= RequestMethod.POST )
     public String form(ProcessoSeletivoCadastro cadastro){
-        ps.save(cadastro);
+        processoSeletivoRepository.save(cadastro);
         return "redirect:/processoSeletivo";
     }
 
-    /*@RequestMapping(method = RequestMethod.GET, value="/processoSeletivo/listarCandidatos")
+    @RequestMapping(method = RequestMethod.GET, value="/processoSeletivo/listarCandidatos")
     public ModelAndView listarCandidatos(){
-        ModelAndView mv = new ModelAndView("/processoSeletivo/listarCandidatos");
-        Iterable<ProcessoSeletivoCadastro> listaCandidatos = ps.findAll();
-        mv.addObject("candidatos", listaCandidatos);
-        return mv;
-    }*/
-    @RequestMapping(value="/processoSeletivo/listarCandidatos")
-    public String ListarCandidatos(Model model){
-        model.addAttribute("candidatos", ps.findAll());
-        return "/processoSeletivo/listarCandidatos";
+
+        ModelAndView modelAndView = new ModelAndView("sme/processoSeletivo/listarCandidatos");
+        Iterable<ProcessoSeletivoCadastro> listaCandidatos = processoSeletivoRepository.findAll();
+
+        modelAndView.addObject("candidatos", listaCandidatos);
+
+        return modelAndView;
     }
+
+//    @RequestMapping(value="/processoSeletivo/listarCandidatos")
+//    public String ListarCandidatos(Model model){
+//        model.addAttribute("candidatos", processoSeletivoRepository.findAll());
+//        return "/processoSeletivo/listarCandidatos";
+//    }
 
     /*@RequestMapping(value="/processoSeletivo/listarCandidatos")
     public String test(){

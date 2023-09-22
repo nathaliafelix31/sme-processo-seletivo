@@ -23,13 +23,13 @@ public class ProcessoSeletivoCadastro {
     private Long codigo;
     @NotNull
     private String nome;
+    @NotNull
     @DateTimeFormat
     private String dataNascimento;
 
     @Column(unique = true)
     @CPF(message = "CPF inválido!")
     private String cpf;
-
     @NotNull
     private String rg;
     @NotNull
@@ -38,14 +38,26 @@ public class ProcessoSeletivoCadastro {
     private String telefone;
     @NotNull
     private String vaga;
-    @NotNull
     private String disciplina;
-    @NotNull
-    private String escolaridade;
+
+    private String posGraduacao;
+    private String habilitado;
+    private String cursandoLicenciatura;
+    private String cursandoBacharelado;
+    private String cursoNivelMedio;
+    private String ensinoMedioCompleto;
+    private String ensinoMedioIncompleto;
+    private String escolaridadeMedioIncompleto;
+    private String anoConclusaoEscolaridadeMedioIncompleto;
+    private String ensinoFundamentalCompleto;
+    private String ensinoFundamentalIncompleto;
+    private String escolaridadeFundamentalIncompleto;
+    private String anoConclusaoEscolaridadeFundamentalIncompleto;
+    private String outro;
     @NotNull
     private String aperfeicoamentoProfissional;
     private Integer cargaHoraria;
-    @NotNull
+
     private Integer tempoServico;
 
     @CreationTimestamp

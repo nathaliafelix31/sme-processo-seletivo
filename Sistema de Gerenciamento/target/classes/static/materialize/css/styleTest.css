@@ -1,6 +1,65 @@
-#pai div{
+.show-pai {
+    display: show;
+}
+.hidden-pai {
     display: none;
 }
+
+.show-pos-graduacao {
+    display: show;
+}
+.hidden-pos-graduacao {
+    display: none;
+}
+.show-habilitado {
+    display: show;
+}
+.hidden-habilitado {
+    display: none;
+}
+.show-licenciatura {
+    display: show;
+}
+.hidden-licenciatura {
+    display: none;
+}
+.show-bacharelado {
+    display: show;
+}
+.hidden-bacharelado {
+    display: none;
+}
+.show-nivel-medio {
+    display: show;
+}
+.hidden-nivel-medio {
+    display: none;
+}
+.show-medio-incompleto {
+    display: show;
+}
+.hidden-medio-incompleto {
+    display: none;
+}
+.show-fundamental-completo {
+    display: show;
+}
+.hidden-fundamental-completo {
+    display: none;
+}
+.show-fundamental-incompleto {
+    display: show;
+}
+.hidden-fundamental-incompleto {
+    display: none;
+}
+.show-outro {
+    display: show;
+}
+.hidden-outro {
+    display: none;
+}
+
 
 
 #box{

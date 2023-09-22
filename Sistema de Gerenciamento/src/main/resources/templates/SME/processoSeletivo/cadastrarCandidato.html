@@ -28,7 +28,7 @@
 
     <h4><center>Cadastro de Reserva de Vagas 2024</center></h4>
     <div class="row" >
-      <form id="box" class="container" method="post">
+      <form class="container" method="post">
         <div class="row">
           <div class="input-field col s12">
             <input placeholder="Digite seu nome completo" id="full_name" type="text" class="validate" name="nome">
@@ -73,12 +73,12 @@
         </div>
         <div class="row">
           <div class="input-field col s6" >
-              <select id="select" name="vaga">
+              <select id="select" name="vaga" onchange="cargoPleitadoFunction()">
                 <option value="" disabled selected>Selecione</option>
                 <option value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
                 <option value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
-                <option value="Prof_dos_Anos_Finais_do_Ensino_Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
-                <option value="Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental" >Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
+                <option value="Profº. dos Anos Finais do Ensino Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
+                <option value="Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental">Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
                 <option value="Especialista em Educação">Especialista em Educação</option>
                 <option value="Auxiliar de Serviço Escolar">Auxiliar de Serviço Escolar</option>
                 <option value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
@@ -93,11 +93,10 @@
               <label>Cargo Pleitado</label>
             </div>
 
-            <div class="input-field col s3" id="pai">
-              <div id="Prof_dos_Anos_Finais_do_Ensino_Fundamental">
+            <div class="input-field col s3 hidden-pai" id="pai">
                 <select name="disciplina">
                   <option value="" disabled selected>Selecione</option>
-                  <option value="Línqua Portuguesa">Línqua Portuguesa</option>
+                  <option value="Línqua Portuguesa">Língua Portuguesa</option>
                   <option value="Matemática">Matemática</option>
                   <option value="História">História</option>
                   <option value="Geografia">Geografia</option>
@@ -108,35 +107,119 @@
                 </select>
                 <label>Disciplina</label>
               </div>
-            </div>
-
-        </div>
+          </div>
         <div class="row">
-          <div class="input-field col s8">
+          <div class="input-field col s6">
             <input placeholder="informe o tempo em de serviço" id="tempoServico" type="text" class="validate" name="tempoServico">
             <label for="tempoServico">Tempo de Serviço no cargo pleiteado no Município de Itacarambi</label>
           </div>
         </div>
 
-
         <div class="row">
-          <div class="input-field col s12">
-            <select name="escolaridade">
-              <option value="" disabled selected>Selecionar</option>
-              <option value="Pós-graduação">Pós-Graduação</option>
-              <option value="Habilitado">Habilitado</option>
-              <option value="Cursando Licenciatura">Cursando Licenciatura</option>
-              <option value="Cursando Bacharelado">Cursando Bacharelado</option>
-              <option value="Curso Normal em Nível Médio com habilitação para a área de atuação">Curso Normal em Nível Médio com habilitação para a área de atuação</option>
-              <option value="Ensino Médio Completo">Ensino Médio Completo</option>
-              <option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>
-              <option value="Ensino Fundamental Completo">Ensino Fundamental Completo</option>
-              <option value="Ensino Fundamental Incompleto">Ensino Fundamental Incompleto</option>
-              <option value="Outros">Outros</option>
-            </select>
-            <label>Escolaridade do Candidato</label>
-          </div>
-        </div>
+          <label>Escolaridade do Candidato</label>
+           <div class="input-field col s12">
+            <form action="#">
+              <p >
+                <label >
+                  <input id="pos" type="checkbox" onchange="posGraduacaoFunction()" value="Pós-Graduação"/>
+                  <span >Pós-Graduação</span>
+                  <input type="text" id="pos-graduacao" class="validate hidden-pos-graduacao" name="posGraduacao">
+                </label>
+              </p>
+
+              <p>
+                <label>
+                  <input id="habilitadoEm" type="checkbox" onchange="habilitadoFunction()" value="Habilitado Em" />
+                  <span>Habilitado em:</span>
+                  <input type="text" id="habilitado" class="validate hidden-habilitado" name="habilitado">
+                </label>
+              </p>
+
+              <p>
+                  <label>
+                    <input id="licenciatura" type="checkbox" onchange="licenciaturaFunction()" value="Cursando Licenciatura"/>
+                    <span>Cursando Licenciatura</span>
+                    <input placeholder="ex: 5º período de Ciências Biológicas" type="text" id="cursando-licenciatura" class="validate hidden-licenciatura" name="cursandoLicenciatura">
+                  </label>
+                </p>
+
+                <p>
+                  <label>
+                    <input id="bacharelado" type="checkbox" onchange="bachareladoFunction()" value="Cursando Bacharelado" />
+                    <span>Cursando Bacharelado</span>
+                    <input placeholder="ex: 5º período de Administração" type="text" id="cursando-bacharelado" class="validate hidden-bacharelado" name="cursandoBacharelado">
+                  </label>
+                </p>
+
+                <p>
+                  <label>
+                    <input id="nivelMedio" type="checkbox" onchange="nivelMedioFunction()" value="Curso Normal em Nível Médio com habilitação para a área de atuação" />
+                    <span>Curso Normal em Nível Médio com habilitação para a área de atuação</span>
+                    <input type="text" id="curso-nivel-medio" class="validate hidden-nivel-medio" name="cursoNivelMedio">
+                  </label>
+                </p>
+
+                <p>
+                  <label>
+                    <input type="checkbox" name="ensinoMedioCompleto"/>
+                    <span>Ensino Médio Completo</span>
+                  </label>
+                </p>
+
+                <p>
+                  <label>
+                    <input id="medioIncompleto" type="checkbox" onchange="medioIncompletoFunction()" name="ensinoMedioIncompleto" value="Ensino Médio Incompleto" />
+                    <span>Ensino Médio Incompleto</span>
+                  </label>
+                </p>
+                <div class="row hidden-medio-incompleto" id="ensino-medio-incompleto">
+                  <div class="input-field col s3 ">
+                    <input placeholder="ex: 1º Ano" type="text" class="validate" name="escolaridadeMedioIncompleto">
+                  </div>
+                  <div class="input-field col s3">
+                   <p>Ano de Escolaridade Concluída</p>
+                  </div>
+                    <div class="input-field col s3">
+                      <input type="text" id="ano-escolaridade" class="validate" name="anoConclusaoEscolaridadeMedioIncompleto">
+                    </div>
+                </div>
+
+              <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span>Ensino Fundamental Completo</span>
+                    <input type="text" id="ensino-fundamental-completo" class="validate hidden-fundamental-completo" name="ensinoFundamentalCompleto">
+                  </label>
+                </p>
+
+                <p>
+                  <label>
+                    <input type="checkbox" id="fundamentalIncompleto" onchange="fundamentalIncompletoFunction()" name="ensinoFundamentalIncompleto" value="Ensino Fundamental Incompleto"/>
+                    <span>Ensino Fundamental Incompleto</span>
+                  </label>
+                </p>
+                <div class="row hidden-fundamental-incompleto" id="ensino-fundamental-incompleto" >
+                  <div class="input-field col s3">
+                    <input placeholder="ex: 3º série" type="text"  class="validate" name="escolaridadeFundamentalIncompleto">
+                  </div>
+                  <div class="input-field col s3">
+                    <p>Ano de Escolaridade Concluída</p>
+                  </div>
+                  <div class="input-field col s3">
+                    <input type="text" id="ano-escolaridade-fundamental" class="validate" name="anoConclusaoEscolaridadeFundamentalIncompleto">
+                  </div>
+                </div>
+                <p>
+                  <label>
+                    <input id="outroEscolaridade" type="checkbox" onchange="outroFunction()" value="Outro" />
+                    <span>Outro</span>
+                    <input  type="text" id="outro" class="validate hidden-outro" name="outro">
+                  </label>
+                </p>
+              </form>
+
+            </div>
+
 
         <div class="row">
           <div class="input-field col s9">
@@ -153,33 +236,112 @@
             <input placeholder="informe a carga horária" id="cargaHoraria" type="text" class="validate" name="cargaHoraria" value="0">
             <label for="cargaHoraria">Carga Horária</label>
           </div>
-      </div>
-
-     <!--   ;-->
-        <button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i>
-
-        </button>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Envpppiar<i class="material-icons right">send</i></button>
       </form>
 
     </div>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
     <script>
-      $(document).ready(function(){
-         $('select').formSelect();
+
+        $(document).ready(function(){
+           $('select').formSelect();
+        });
+
+       function cargoPleitadoFunction() {
+          var x = document.getElementById("select").value;
+
+          if (x === 'Profº. dos Anos Finais do Ensino Fundamental') {
+            var y =  document.getElementById("pai");
+            y.classList.add("show-pai");
+            y.classList.remove("hidden-pai");
+           }
+       }
+
+      function posGraduacaoFunction() {
+                var x = document.getElementById("pos").value;
+
+                if (x === 'Pós-Graduação') {
+                  var y =  document.getElementById("pos-graduacao");
+                  y.classList.add("show-pos-graduacao");
+                  y.classList.toggle("hidden-pos-graduacao").reset();
+                }
+        }
+      function habilitadoFunction() {
+                var x = document.getElementById("habilitadoEm").value;
+
+                if (x === 'Habilitado Em') {
+                  var y =  document.getElementById("habilitado");
+                  y.classList.add("show-habilitado");
+                  y.classList.toggle("hidden-habilitado");
+
+                }
+      }
+
+       function licenciaturaFunction() {
+                var x = document.getElementById("licenciatura").value;
+
+                if (x === 'Cursando Licenciatura') {
+                  var y =  document.getElementById("cursando-licenciatura");
+                  y.classList.add("show-licenciatura");
+                  y.classList.toggle("hidden-licenciatura");
+                }
+       }
+
+        function bachareladoFunction() {
+                var x = document.getElementById("bacharelado").value;
+
+                if (x === 'Cursando Bacharelado') {
+                  var y =  document.getElementById("cursando-bacharelado");
+                  y.classList.add("show-bacharelado");
+                  y.classList.toggle("hidden-bacharelado");
+                }
+        }
+        function nivelMedioFunction() {
+                var x = document.getElementById("nivelMedio").value;
+
+                if (x === 'Curso Normal em Nível Médio com habilitação para a área de atuação') {
+                  var y =  document.getElementById("curso-nivel-medio");
+                  y.classList.add("show-nivel-medio");
+                  y.classList.remove("hidden-nivel-medio");
+                }
+        }
+
+        function medioIncompletoFunction() {
+                var x = document.getElementById("medioIncompleto").value;
+
+                if (x === 'Ensino Médio Incompleto') {
+                  var y =  document.getElementById("ensino-medio-incompleto");
+                  y.classList.add("show-medio-incompleto");
+                  y.classList.remove("hidden-medio-incompleto");
+                }
+        }
+
+         function fundamentalIncompletoFunction() {
+                var x = document.getElementById("fundamentalIncompleto").value;
+
+                if (x === 'Ensino Fundamental Incompleto') {
+                    var y =  document.getElementById("ensino-fundamental-incompleto");
+                    y.classList.add("show-fundamental-incompleto");
+                    y.classList.remove("hidden-fundamental-incompleto");
+                  }
+                }
+        function outroFunction() {
+                var x = document.getElementById("outroEscolaridade").value;
+
+                if (x === 'Outro') {
+                  var y =  document.getElementById("outro");
+                  y.classList.add("show-outro");
+                  y.classList.remove("hidden-outro");
+                }
+        }
 
 
-        $('#select').on('change',function(){
-        var selectValor = '#'+$(this).val();
-        $('#pai').children('div').hide();
-        $('#pai').children(selectValor).show();
-
-            });
-
-      });
-    </script>
+  </script>
 
 
-</body>
+
+  </body>
 </html>

@@ -3,13 +3,15 @@ package SistemaSME.Controllers;
 
 import SistemaSME.Models.ProcessoSeletivoCadastro;
 import SistemaSME.Repository.ProcessoSeletivoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.naming.Binding;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,7 +39,20 @@ public class SmeController {
     }
 
     @RequestMapping(value="/processoSeletivo/cadastrarCandidato", method= RequestMethod.POST )
-    public String form(ProcessoSeletivoCadastro cadastro){
+    public Object salvar(@Valid ProcessoSeletivoCadastro cadastro, BindingResult bindingResult){
+       if (bindingResult.hasErrors()){
+           ModelAndView modelAndView = new ModelAndView("SME/processoSeletivo/cadastrarCandidato");
+           Iterable<ProcessoSeletivoCadastro> candidato = processoSeletivoRepository.findAll();
+           modelAndView.addObject("candidatos", candidato);
+           modelAndView.addObject("candidatoObj", cadastro);
+
+           List<String> msg = new ArrayList<String>();
+           for (ObjectError objectError : bindingResult.getAllErrors()){
+               msg.add(objectError.getDefaultMessage()); // vem das anotações @NotEmpity e outras
+           }
+            modelAndView.addObject("msg",msg);
+           return modelAndView;
+       }
         processoSeletivoRepository.save(cadastro);
         return "redirect:/processoSeletivo";
     }

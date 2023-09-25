@@ -18,17 +18,23 @@
         <a href="#!" class="brand-logo">Processo Seletivo 2024</a>
         <ul class="right hide-on-med-and-down">
 
-
-          <li><a href="#">Edital</a></li>
-          <li><a href="#">Cronograma do Candidato</a></li>
+          <li><a href="/processoSeletivo">Página Inicial</a></li>
+          <li><a href="https://drive.google.com/file/d/1Wc3K0zuv33z5M6dsEwlzOUsI9zReBFvy/view?usp=sharing">Edital</a></li>
+          <li><a href="https://drive.google.com/file/d/1HzcSpQL9cXhkA2KMqzudtCXHYiFYQhU-/view?usp=drive_link">Cronograma do Candidato</a></li>
         </ul>
       </div>
 
     </nav>
+    <br/>
+      <div th:each = "m : ${msg}" class="container">
+        <span th:text = "${m}"></span>
+
+      </div>
+    <br/>
 
     <h4><center>Cadastro de Reserva de Vagas 2024</center></h4>
     <div class="row" >
-      <form class="container" method="post">
+      <form class="container" method="post" th:object="${candidatoObj}">
         <div class="row">
           <div class="input-field col s12">
             <input placeholder="Digite seu nome completo" id="full_name" type="text" class="validate" name="nome">
@@ -74,21 +80,22 @@
         <div class="row">
           <div class="input-field col s6" >
               <select id="select" name="vaga" onchange="cargoPleitadoFunction()">
-                <option value="" disabled selected>Selecione</option>
-                <option value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
-                <option value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
-                <option value="Profº. dos Anos Finais do Ensino Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
-                <option value="Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental">Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
-                <option value="Especialista em Educação">Especialista em Educação</option>
-                <option value="Auxiliar de Serviço Escolar">Auxiliar de Serviço Escolar</option>
-                <option value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
-                <option value="Assistente Técnico da Educação Básica">Assistente Técnico da Educação Básica</option>
-                <option value="Secretário Escolar">Secretário Escolar</option>
-                <option value="Nutricionista">Nutricionista</option>
-                <option value="Psicólogo">Psicólogo</option>
-                <option value="Assistente Social">Assistente Social</option>
-                <option value="Motorista Escolar">Motorista Escolar</option>
-                <option value="Vigia Escolar">Vigia Escolar</option>
+              <!--  <option value="" disabled selected>Selecione</option>
+                <option id="Prof-Edu-inf" value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
+                <option id="Prof-Ini-Ens-Fund" value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
+                <option id="Prof-Fin-Ens-Fund" value="Profº. dos Anos Finais do Ensino Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
+                <option id="Prof-Ed-Fisica" value="Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental">Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
+                <option id="especialista" value="Especialista em Educação">Especialista em Educação</option>
+                <option id="inspetor-alunos" value="Inspetor de Alunos">Inspetor de Alunos</option>
+                <option id="ase" value="Auxiliar de Serviço Escolar">Auxiliar de Serviço Escolar</option>
+                <option id="asg" value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
+                <option id="atb" value="Assistente Técnico da Educação Básica">Assistente Técnico da Educação Básica</option>
+                <option id="secretario" value="Secretário Escolar">Secretário Escolar</option>
+                <option id="nutricionista" value="nutricionista">Nutricionista</option>
+                <option id="psicologo" value="Psicólogo">Psicólogo</option>
+                <option id="assistente" value="Assistente Social">Assistente Social</option>
+                <option id="motorista" value="Motorista Escolar">Motorista Escolar</option>
+                <option id="vigia" value="Vigia Escolar">Vigia Escolar</option>-->
               </select>
               <label>Cargo Pleitado</label>
             </div>
@@ -96,7 +103,7 @@
             <div class="input-field col s3 hidden-pai" id="pai">
                 <select name="disciplina">
                   <option value="" disabled selected>Selecione</option>
-                  <option value="Línqua Portuguesa">Língua Portuguesa</option>
+                  <option value="Língua Portuguesa">Língua Portuguesa</option>
                   <option value="Matemática">Matemática</option>
                   <option value="História">História</option>
                   <option value="Geografia">Geografia</option>
@@ -161,7 +168,7 @@
 
                 <p>
                   <label>
-                    <input type="checkbox" name="ensinoMedioCompleto"/>
+                    <input type="checkbox" name="ensinoMedioCompleto" value="Ensino Médio Completo"/>
                     <span>Ensino Médio Completo</span>
                   </label>
                 </p>
@@ -186,7 +193,7 @@
 
               <p>
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox" value="Ensino Fundamental Completo"/>
                     <span>Ensino Fundamental Completo</span>
                     <input type="text" id="ensino-fundamental-completo" class="validate hidden-fundamental-completo" name="ensinoFundamentalCompleto">
                   </label>
@@ -217,8 +224,8 @@
                   </label>
                 </p>
               </form>
+           </div>
 
-            </div>
 
 
         <div class="row">
@@ -237,9 +244,11 @@
             <label for="cargaHoraria">Carga Horária</label>
           </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Envpppiar<i class="material-icons right">send</i></button>
-      </form>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>
 
+        </div>
+      </form>
+<
     </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -259,6 +268,125 @@
             y.classList.remove("hidden-pai");
            }
        }
+
+
+       const urlParams = new URLSearchParams(window.location.search);
+
+          const id = urlParams.get('id');
+
+          if (id === 'especialista'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Especialista em Educação';
+              opcaoDinamica.textContent = 'Especialista em Educação';
+              selectElement.appendChild(opcaoDinamica);
+
+           }else if (id === 'peb'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Profº. da Educação Infantil';
+              opcaoDinamica.textContent = 'Profº. da Educação Infantil';
+              selectElement.appendChild(opcaoDinamica);
+
+              const opcaoDinamica2 = document.createElement('option');
+              opcaoDinamica2.value = 'Profº. dos Anos Iniciais do Ensino Fundamental';
+              opcaoDinamica2.textContent = 'Profº. dos Anos Iniciais do Ensino Fundamental';
+              selectElement.appendChild(opcaoDinamica2);
+
+              const opcaoDinamica3 = document.createElement('option');
+              opcaoDinamica3.value = 'Profº. dos Anos Finais do Ensino Fundamental';
+              opcaoDinamica3.textContent = 'Profº. dos Anos Finais do Ensino Fundamental';
+              selectElement.appendChild(opcaoDinamica3);
+
+              const opcaoDinamica4 = document.createElement('option');
+              opcaoDinamica4.value = 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental';
+              opcaoDinamica4.textContent = 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental';
+              selectElement.appendChild(opcaoDinamica4);
+
+
+           }else if (id === 'inspetor-alunos'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Inspetor de Alunos';
+              opcaoDinamica.textContent = 'Inspetor de Alunos';
+              selectElement.appendChild(opcaoDinamica);
+          }else if (id === 'ase'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Auxiliar de Serviço Escolar';
+              opcaoDinamica.textContent = 'Auxiliar de Serviço Escolar';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'asg'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Auxiliar de Serviços Gerais';
+              opcaoDinamica.textContent = 'Auxiliar de Serviços Gerais';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'atb'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Assistente Técnico em Educação Básica';
+              opcaoDinamica.textContent = 'Assistente Técnico em Educação Básica';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'secretario'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Secretário Escolar';
+              opcaoDinamica.textContent = 'Secretário Escolar';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'nutricionista'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Nutricionista';
+              opcaoDinamica.textContent = 'Nutricionista';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'psicologo'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Psicólogo';
+              opcaoDinamica.textContent = 'Psicólogo';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'assistente'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Assistente Social';
+              opcaoDinamica.textContent = 'Assistente Social';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'motorista'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Motorista Escolar';
+              opcaoDinamica.textContent = 'Motorista Escolar';
+              selectElement.appendChild(opcaoDinamica);
+
+          }else if (id === 'vigia'){
+              const selectElement = document.getElementById('select');
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Vigia Escolar';
+              opcaoDinamica.textContent = 'Vigia Escolar';
+              selectElement.appendChild(opcaoDinamica);
+
+          }
+
 
       function posGraduacaoFunction() {
                 var x = document.getElementById("pos").value;
@@ -339,9 +467,8 @@
         }
 
 
-  </script>
 
-
+</script>
 
   </body>
 </html>

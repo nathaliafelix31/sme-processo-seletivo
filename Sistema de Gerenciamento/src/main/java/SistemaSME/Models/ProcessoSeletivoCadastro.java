@@ -1,6 +1,7 @@
 package SistemaSME.Models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -16,27 +17,33 @@ import java.time.LocalDateTime;
 @Entity
 public class ProcessoSeletivoCadastro {
 
-    //notEmpty
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
-    @NotNull
+
+    @NotEmpty(message = "Nome Completo não pode ser vazio!")
     private String nome;
-    @NotNull
-    @DateTimeFormat
+
+    @NotEmpty(message = "Data de Nascimento não pode ser vazio!")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private String dataNascimento;
 
     @Column(unique = true)
     @CPF(message = "CPF inválido!")
     private String cpf;
-    @NotNull
+    @NotEmpty(message = "RG não pode ser vazio!")
     private String rg;
-    @NotNull
+
+    @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
-    @NotNull
+
+    @NotEmpty(message = "Telefone não pode ser vazio!")
     private String telefone;
-    @NotNull
+
+    @NotEmpty(message = "Cargo não pode ser vazio!")
     private String vaga;
     private String disciplina;
 
@@ -60,6 +67,9 @@ public class ProcessoSeletivoCadastro {
 
     private Integer tempoServico;
 
+
+
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @CreationTimestamp
     private LocalDateTime dataCriacao;
 

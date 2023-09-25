@@ -17,8 +17,8 @@
     <a href="#!" class="brand-logo">Processo Seletivo 2024</a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/processoSeletivo/listarCandidatos">Lista de Candidatos</a></li>
-      <li><a href="#">Edital</a></li>
-      <li><a href="#">Cronograma do Candidato</a></li>
+      <li><a href="https://drive.google.com/file/d/1Wc3K0zuv33z5M6dsEwlzOUsI9zReBFvy/view?usp=sharing">Edital</a></li>
+      <li><a href="https://drive.google.com/file/d/1HzcSpQL9cXhkA2KMqzudtCXHYiFYQhU-/view?usp=drive_link">Cronograma do Candidato</a></li>
     </ul>
   </div>
 </nav>
@@ -30,87 +30,34 @@
     <p>Nome: <span th:text="${candidato.nome}"></span></p>
     <p>CPF: <span th:text="${candidato.cpf}"></span></p>
     <p>RG: <span th:text="${candidato.rg}"></span></p>
+    <p>Data de Nascimento: <span th:text="${candidato.dataNascimento}"></span></p>
     <p>Email: <span th:text="${candidato.email}"></span></p>
     <p>Telefone: <span th:text="${candidato.telefone}"></span></p>
     <p>Cargo Pleitado: <span th:text="${candidato.vaga}"></span></p>
     <p>Disciplina: <span th:text="${candidato.disciplina}"></span></p>
-    <p>Escolaridade: <span th:text="${candidato.escolaridade}"></span></p>
-    <p>Aperfeicoamento Profissional: <span th:text="${candidato.aperfeicoamentoProfissional}"></span></p>
+    <p>Escolaridade: <span th:text="${candidato.posGraduacao}"></span><span th:text="${candidato.habilitado}"></span><span th:text="${candidato.cursoNivelMedio}"></span></p>
+    <p>Aperfeiçoamento Profissional: <span th:text="${candidato.aperfeicoamentoProfissional}"></span></p>
     <p>Carga Horaria: <span th:text="${candidato.cargaHoraria}"></span></p>
     <p>Tempo de Servico: <span th:text="${candidato.tempoServico}"></span></p>
     <p>Data da Inscrição: <span th:text="${candidato.dataCriacao}"></span></p>
-    <p>Data de Nascimento: <span th:text="${candidato.dataNascimento}"></span></p>
+
   </div>
 </div>
 
-<!-- ------------------------------------------ -->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js">
-</script>
-<style type="text/css">
-        .selectt {
-            color: #fff;
-            padding: 30px;
-            margin-top: 30px;
-            width: 60%;
-            background: green
-        }
 
-  body{
-  background: pink;
-  }
-        label {
-            margin-right: 20px;
-        }
-    </style>
-
-
-
-<center>
-  <h1 style="color:green;">
-    GeeksforGeeks
-  </h1>
-  <h3>
-    Show and Hide div elements using checkbox
-  </h3>
-  <div>
-    <label>
-      <input type="checkbox" name="colorCheckbox"
-             value="C"> C</label>
-    <label>
-      <input type="checkbox" name="colorCheckbox"
-             value="Cplus"> C++</label>
-    <label>
-      <input type="checkbox" name="colorCheckbox"
-             value="Python"> Python</label>
-    <label>
-      <input type="checkbox" name="colorCheckbox"
-             value="Java"> Java</label>
-  </div>
-  <div class="C selectt">
-    <strong>C</strong>
-    is a procedural programming language</div>
-  <div class="Cplus selectt">
-    <strong>C++</strong>
-    is a general purpose programming language</div>
-  <div class="Python selectt">
-    <strong>Python</strong>
-    is a widely used general-purpose, high level
-    programming language.</div>
-  <div class="Java selectt">
-    <strong>Java</strong>
-    is a most popular programming language for
-    many years.</div>
-  <script type="text/javascript">
-            $(document).ready(function() {
-                $('input[type="checkbox"]').click(function() {
-                    var inputValue = $(this).attr("value");
-                    $("." + inputValue).toggle();
-
-                });
-            });
-        </script>
-</center>
-<!-- ------------------------------------------ -->
+<!--
+cursandoLicenciatura;
+ cursandoBacharelado;
+cursoNivelMedio;
+ ensinoMedioIncompleto;
+escolaridadeMedioIncompleto;
+ anoConclusaoEscolaridadeMedioIncompleto;
+ ensinoFundamentalCompleto;
+ ensinoFundamentalIncompleto;
+ escolaridadeFundamentalIncompleto;
+anoConclusaoEscolaridadeFundamentalIncompleto;
+outro;
+------------------------------------------ -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
 </body>

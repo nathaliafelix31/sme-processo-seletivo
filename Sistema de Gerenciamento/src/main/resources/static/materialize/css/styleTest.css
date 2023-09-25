@@ -60,7 +60,9 @@
     display: none;
 }
 
-
+#inspetor{
+    display: none;
+}
 
 #box{
 	/*definimos a largura do box*/

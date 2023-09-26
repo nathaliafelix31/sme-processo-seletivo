@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html">
     <head>
         <link rel ="shortcut icon" href="https://www.itacarambi.mg.gov.br/img/logo_mobile.png?1678302142">
         <title>Processo Seletivo</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/materialize/css/styleTest.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -16,168 +17,36 @@
         <div class="nav-wrapper blue darken-1">
             <a href="#!" class="brand-logo"> Processo Seletivo 2024</a>
             <ul class="right hide-on-med-and-down">
-
-
-                <li><a href="https://drive.google.com/file/d/1Wc3K0zuv33z5M6dsEwlzOUsI9zReBFvy/view?usp=sharing">Edital</a></li>
-                <li><a href="/processoSeletivo/listarCandidatos">Candidatos Inscritos</a></li>
-                <li><a href="https://drive.google.com/file/d/1HzcSpQL9cXhkA2KMqzudtCXHYiFYQhU-/view?usp=drive_link">Cronograma do Candidato</a></li>
+                <li><i class="material-icons left">home</i><a href="/">Página Inicial</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container service">
 
-        <h3>Vagas</h3>
-        <a href="/processoSeletivo/formularioRecurso">Formulário De Recurso</a>
-        <div class="row">
-            <!-- card 1-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">school</i>
-                        <h5>Professor de Educação Básica</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="peb" href="/processoSeletivo/cadastrarCandidato?id=peb">Inscrever</a></div>
-                </div>
-            </div>
 
-            <!-- card 2-->
-            <div class="col s12 m3 13 center-align card-h">
+    <div class="container">
+        <h5>PROCESSO SELETIVO SIMPLIFICADO Nº. 01/2024 - DECRETO Nº 03, DE 04 DE JANEIRO DE 2024</h5></br>
 
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">people</i>
-                        <h5>Psicólogo</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="psicologo" href="/processoSeletivo/cadastrarCandidato?id=psicologo">Inscrever</a></div>
-                </div>
-            </div>
+        <h6>DECRETO Nº. 03, DE 04 DE JANEIRO DE 2024 -
+            Estabelece critérios e define procedimentos para realização de Processo Seletivo Simplificado com Análise Curricular para Formação
+            de Cadastro de Reserva para a contratação na Rede Municipal de Educação para os cargos públicos de: Professor de Educação Básica,
+            Especialista em Educação, Auxiliar de Serviços Gerais, Auxiliar de Serviço Escolar, Assistente Técnico da Educação Básica (ATB),
+            Secretário Escolar, Nutricionista, Motorista Escolar, Vigia Escolar, Psicólogo, Assistente Social e Inspetor de Alunos,
+            para composição/recomposição do quadro de pessoal das Escolas Municipais de Itacarambi-MG, no ano de 2024, e dá outras providências.</h6>
 
-            <!-- card 3-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">school</i>
-                        <h5>Especialistas em Educação</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="especialista" href="/processoSeletivo/cadastrarCandidato?id=especialista">Inscrever</a></div>
-                </div>
-
-            </div>
-
-            <!-- card 4-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">local_library</i>
-                        <h5>Assistente Técnico da Educação Básica</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="atb" href="/processoSeletivo/cadastrarCandidato?id=atb">Inscrever</a></div>
-                </div>
-            </div>
-
-            <!-- card 5-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">star</i>
-                        <h5>Auxiliar de Serviços Gerais</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="asg" href="/processoSeletivo/cadastrarCandidato?id=asg">Inscrever</a></div>
-                </div>
-            </div>
-
-            <!-- card 6-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">local_library</i>
-                        <h5>Secretário Escolar</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="secretario" href="/processoSeletivo/cadastrarCandidato?id=secretario">Inscrever</a></div>
-                </div>
-            </div>
-
-            <!-- card 7-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">restaurant_menu</i>
-                        <h5>Nutricionista</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="nutricionista" href="/processoSeletivo/cadastrarCandidato?id=nutricionista">Inscrever</a></div>
-                </div>
-            </div>
-
-            <!-- card 8-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">star</i>
-                        <h5>Auxiliar de Serviço Escolar</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="ase" href="/processoSeletivo/cadastrarCandidato?id=ase">Inscrever</a></div>
-                </div>
-            </div>
-
-            <!-- card 9-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">airport_shuttle</i>
-                        <h5>Motorista Escolar</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="motorista" href="/processoSeletivo/cadastrarCandidato?id=motorista">Inscrever</a></div>
-                </div>
-            </div>
-
-            <!-- card 10-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">star</i>
-                        <h5>Vigia Escolar</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="vigia" href="/processoSeletivo/cadastrarCandidato?id=vigia">Inscrever</a></div>
-                </div>
-            </div>
-
-            <!-- card 11-->
-                <div class="col s12 m3 13 center-align card-h">
-                    <div class="card">
-                        <div class="card-content">
-                            <i class="material-icons large">local_library</i>
-                            <h5>Assistente Social</h5>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
-                        <div class="card-action"><a id="assistente" href="/processoSeletivo/cadastrarCandidato?id=assistente">Inscrever</a></div>
-                    </div>
-                </div>
-
-            <!-- card 12-->
-            <div class="col s12 m3 13 center-align card-h">
-                <div class="card">
-                    <div class="card-content">
-                        <i class="material-icons large">school</i>
-                        <h5>Inspetor de Alunos</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="card-action"><a id="inspetor-alunos" href="/processoSeletivo/cadastrarCandidato?id=inspetor-alunos">Inscrever</a></div>
-                </div>
-            </div>
-
+        </br>
+        <div class="collection">
+        <a href="https://drive.google.com/file/d/1Wc3K0zuv33z5M6dsEwlzOUsI9zReBFvy/view?usp=sharing" class="collection-item">Edital</a>
+            <a href="/processoSeletivo/vagas" class="collection-item"><span class="badge textoPiscando">Novo!</span><span>Inscrições</span></a>
+            <a href="#" class="collection-item"><span class="badge textoPiscando">Novo!</span><span>Lista Preliminar dos candidatosClassificados no Processo seletivo simplificado</span></a>
+            <a href="/processoSeletivo/formularioRecurso" class="collection-item "><span class="badge textoPiscando">Novo!</span><span>Formulário De Recurso</span></a>
+            <a href="#" class="collection-item"><span class="badge textoPiscando">Novo!</span><span>Resultado dos recursos protocolados</span></a>
+            <a href="#" class="collection-item"><span class="badge textoPiscando">Novo!</span><span>Divulgação final da lista de classificação dos candidatos no processo seletivo simplificado nº.../2024 para vagas remanescentes</span></a>
+            <a href="https://drive.google.com/file/d/1HzcSpQL9cXhkA2KMqzudtCXHYiFYQhU-/view?usp=drive_link" class="collection-item"><span class="badge textoPiscando">Novo!</span><span>Cronograma das Designações</span></a>
         </div>
     </div>
+
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
     </body>

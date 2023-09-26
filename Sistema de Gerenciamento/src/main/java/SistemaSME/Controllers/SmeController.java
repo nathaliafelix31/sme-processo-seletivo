@@ -36,6 +36,12 @@ public class SmeController {
 
         return "/SME/processoSeletivo/processoSeletivo.html";
     }
+
+    @RequestMapping(value="/processoSeletivo/vagas")
+    public String vagas(){
+
+        return "/SME/processoSeletivo/vagas.html";
+    }
     @RequestMapping(value="/processoSeletivo/cadastrarCandidato")
     public String cadastrarCandidato(){
 

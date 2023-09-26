@@ -1,7 +1,9 @@
 package SistemaSME.Controllers;
 
 
+import SistemaSME.Models.FormularioRecurso;
 import SistemaSME.Models.ProcessoSeletivoCadastro;
+import SistemaSME.Repository.FormularioRecursoRepository;
 import SistemaSME.Repository.ProcessoSeletivoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class SmeController {
 
     @Autowired
     private ProcessoSeletivoRepository processoSeletivoRepository;
+    @Autowired
+    private FormularioRecursoRepository formularioRecursoRepository;
 
     @RequestMapping(value="/")
     public String sme(){
@@ -37,9 +41,14 @@ public class SmeController {
 
         return "/SME/processoSeletivo/cadastrarCandidato.html";
     }
+    @RequestMapping(value="/processoSeletivo/formularioRecurso")
+    public String cadastrarRecurso(){
+
+        return "/SME/processoSeletivo/formularioRecurso.html";
+    }
 
     @RequestMapping(value="/processoSeletivo/cadastrarCandidato", method= RequestMethod.POST )
-    public Object salvar(@Valid ProcessoSeletivoCadastro cadastro, BindingResult bindingResult){
+    public Object salvarCandidato(@Valid ProcessoSeletivoCadastro cadastro, BindingResult bindingResult){
        if (bindingResult.hasErrors()){
            ModelAndView modelAndView = new ModelAndView("SME/processoSeletivo/cadastrarCandidato");
            Iterable<ProcessoSeletivoCadastro> candidato = processoSeletivoRepository.findAll();
@@ -72,5 +81,22 @@ public class SmeController {
         return mv;
     }
 
+    @RequestMapping(value="/processoSeletivo/formularioRecurso", method= RequestMethod.POST )
+    public Object salvarFormularioRecurso(@Valid FormularioRecurso formulario, BindingResult bindingResult){
+        if (bindingResult.hasErrors()){
+            ModelAndView modelAndView = new ModelAndView("SME/processoSeletivo/formularioRecurso");
+            Iterable<FormularioRecurso> formularioRecursos = formularioRecursoRepository.findAll();
+            modelAndView.addObject("formularioRecursos", formularioRecursos);
+            modelAndView.addObject("formularioRecursoObj", formulario);
 
+            List<String> msg = new ArrayList<String>();
+            for (ObjectError objectError : bindingResult.getAllErrors()){
+                msg.add(objectError.getDefaultMessage()); // vem das anotações @NotEmpity e outras
+            }
+            modelAndView.addObject("msg",msg);
+            return modelAndView;
+        }
+        formularioRecursoRepository.save(formulario);
+        return "redirect:/processoSeletivo";
+    }
 }

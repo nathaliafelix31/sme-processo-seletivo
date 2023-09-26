@@ -35,6 +35,7 @@
     <h4><center>Cadastro de Reserva de Vagas 2024</center></h4>
     <div class="row" >
       <form class="container" method="post" th:object="${candidatoObj}">
+
         <div class="row">
           <div class="input-field col s12">
             <input placeholder="Digite seu nome completo" id="full_name" type="text" class="validate" name="nome">
@@ -77,25 +78,10 @@
             <label for="endereco">Endereço Completo</label>
           </div>
         </div>
+
         <div class="row">
           <div class="input-field col s6" >
               <select id="select" name="vaga" onchange="cargoPleitadoFunction()">
-              <!--  <option value="" disabled selected>Selecione</option>
-                <option id="Prof-Edu-inf" value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
-                <option id="Prof-Ini-Ens-Fund" value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
-                <option id="Prof-Fin-Ens-Fund" value="Profº. dos Anos Finais do Ensino Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
-                <option id="Prof-Ed-Fisica" value="Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental">Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
-                <option id="especialista" value="Especialista em Educação">Especialista em Educação</option>
-                <option id="inspetor-alunos" value="Inspetor de Alunos">Inspetor de Alunos</option>
-                <option id="ase" value="Auxiliar de Serviço Escolar">Auxiliar de Serviço Escolar</option>
-                <option id="asg" value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
-                <option id="atb" value="Assistente Técnico da Educação Básica">Assistente Técnico da Educação Básica</option>
-                <option id="secretario" value="Secretário Escolar">Secretário Escolar</option>
-                <option id="nutricionista" value="nutricionista">Nutricionista</option>
-                <option id="psicologo" value="Psicólogo">Psicólogo</option>
-                <option id="assistente" value="Assistente Social">Assistente Social</option>
-                <option id="motorista" value="Motorista Escolar">Motorista Escolar</option>
-                <option id="vigia" value="Vigia Escolar">Vigia Escolar</option>-->
               </select>
               <label>Cargo Pleitado</label>
             </div>
@@ -115,6 +101,7 @@
                 <label>Disciplina</label>
               </div>
           </div>
+
         <div class="row">
           <div class="input-field col s6">
             <input placeholder="informe o tempo em de serviço" id="tempoServico" type="text" class="validate" name="tempoServico">
@@ -125,7 +112,7 @@
         <div class="row">
           <label>Escolaridade do Candidato</label>
            <div class="input-field col s12">
-            <form action="#">
+            <form method="post">
               <p >
                 <label >
                   <input id="pos" type="checkbox" onchange="posGraduacaoFunction()" value="Pós-Graduação"/>
@@ -394,7 +381,7 @@
                 if (x === 'Pós-Graduação') {
                   var y =  document.getElementById("pos-graduacao");
                   y.classList.add("show-pos-graduacao");
-                  y.classList.toggle("hidden-pos-graduacao").reset();
+                  y.classList.toggle("hidden-pos-graduacao");
                 }
         }
       function habilitadoFunction() {

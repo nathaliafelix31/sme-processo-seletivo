@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <link rel ="shortcut icon" href="https://www.itacarambi.mg.gov.br/img/logo_mobile.png?1678302142">
+    <title>Formulário de Recurso</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/materialize/css/style.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/materialize/css/styleTest.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+<body>
+    <nav>
+      <div class="nav-wrapper blue darken-1">
+        <a href="#!" class="brand-logo">Processo Seletivo 2024</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/processoSeletivo">Página Inicial</a></li>
+          <li><a href="https://drive.google.com/file/d/1Wc3K0zuv33z5M6dsEwlzOUsI9zReBFvy/view?usp=sharing">Edital</a></li>
+          <li><a href="https://drive.google.com/file/d/1HzcSpQL9cXhkA2KMqzudtCXHYiFYQhU-/view?usp=drive_link">Cronograma do Candidato</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <h4><center>Formulário para Interposição de Recurso</center></h4>
+  <h6><center>Processo Seletivo Simplificado nº01/2024 - Decreto n.º 03, de 04 de Janeiro de 2024 - Para Formação de Cadastro de Reserva de Vagas</center></h6>
+  <br/>
+  <div th:each = "m : ${msg}" class="container">
+    <span th:text = "${m}"></span>
+  </div>
+  <br/>
+  <div class="row container" >
+    <form method="post" th:object="${formularioRecursoObj}">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Digite seu nome completo" id="full_name" type="text" class="validate" name="nomeCandidato">
+          <label for="full_name">Nome do Candidato</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Digite seu número de inscrição" id="numeroInscricao" type="text" class="validate" name="numeroInscricao">
+          <label for="numeroInscricao">Número de Inscrição</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input placeholder="Documento de Identificação" id="documentoIdentificacao" type="text" class="validate" name="documentoIdentificacao">
+          <label for="documentoIdentificacao">Documento de Identificação</label>
+        </div>
+      </div>
+        <div class="row">
+            <div class="input-field col s6" >
+              <select id="select" name="cargoPleitado" onchange="cargoPleitadoFunction()">
+                <option value="" disabled selected>Selecione</option>
+                <option value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
+                <option value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
+                <option value="Profº. dos Anos Finais do Ensino Fundamental">Profº. dos Anos Finais do Ensino Fundamental</option>
+                <option value="Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental">Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental</option>
+                <option value="Especialista em Educação">Especialista em Educação</option>
+                <option value="Inspetor de Alunos">Inspetor de Alunos</option>
+                <option value="Auxiliar de Serviço Escolar">Auxiliar de Serviço Escolar</option>
+                <option value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
+                <option value="Assistente Técnico da Educação Básica">Assistente Técnico da Educação Básica</option>
+                <option value="Secretário Escolar">Secretário Escolar</option>
+                <option value="Nutricionista">Nutricionista</option>
+                <option value="Psicólogo">Psicólogo</option>
+                <option value="Assistente Social">Assistente Social</option>
+                <option value="Motorista Escolar">Motorista Escolar</option>
+                <option value="Vigia Escolar">Vigia Escolar</option>
+              </select>
+              <label>Cargo Pleitado</label>
+            </div>
+
+            <div class="input-field col s3 hidden-pai" id="pai">
+              <select name="disciplina">
+                <option value="" disabled selected>Selecione</option>
+                <option value="Língua Portuguesa">Língua Portuguesa</option>
+                <option value="Matemática">Matemática</option>
+                <option value="História">História</option>
+                <option value="Geografia">Geografia</option>
+                <option value="Ciências">Ciências</option>
+                <option value="Inglês">Inglês</option>
+                <option value="Ensino Religioso">Ensino Religioso</option>
+                <option value="Arte">Arte</option>
+              </select>
+              <label>Disciplina</label>
+            </div>
+
+        <div class="input-field col s3">
+          <input placeholder="Digite seu telefone" id="telefone" type="text" class="validate" name="telefone">
+          <label for="telefone">Telefone</label>
+        </div>
+      </div>
+      <h6>À comissão Julgadora do Processo Seletivo</h6>
+
+      <div class="row">
+        <h6>O presente recurso refere-se a:</h6>
+        <div class="input-field col s12">
+          <form method="post">
+            <p>
+              <label >
+                <input id="dadosPessoais" type="checkbox" name="tipoRecurso" value="Dados Pessoais"/>
+                <span >Dados Pessoais</span>
+              </label>
+            </p>
+            <p>
+              <label >
+                <input id="escolaridade" type="checkbox" name="tipoRecurso" value="Escolaridade"/>
+                <span>Escolaridade</span>
+              </label>
+            </p>
+            <p>
+              <label >
+                <input id="tempoServiço" type="checkbox" name="tipoRecurso" value="Tempo de Serviço"/>
+                <span>Tempo de Serviço</span>
+              </label>
+            </p>
+            <p>
+              <label >
+                <input id="classificacao" type="checkbox" name="tipoRecurso" value="Classificação Preliminar"/>
+                <span >Classificação Preliminar</span>
+              </label>
+            </p>
+            <p>
+              <label >
+                <input id="outrosFormulario" type="checkbox" onchange="outrosFormularioFunction()" value="Outros"/>
+                <span>Outros</span>
+                <input type="text" id="outroFormulario" class="validate hidden-outros-FormularioRecurso" name="tipoRecurso">
+              </label>
+            </p>
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea placeholder="Apresentar argumentação lógica e consistente" id="textarea1" class="materialize-textarea" name="solicitacao"></textarea>
+                    <label for="textarea1">Fundamentação da Solicitação</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>
+          </form>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+  <script>
+
+          $(document).ready(function(){
+             $('select').formSelect();
+          });
+
+          function cargoPleitadoFunction() {
+            var x = document.getElementById("select").value;
+
+            if (x === 'Profº. dos Anos Finais do Ensino Fundamental') {
+              var y =  document.getElementById("pai");
+              y.classList.add("show-pai");
+              y.classList.remove("hidden-pai");
+             }
+         }
+          function outrosFormularioFunction() {
+                  var x = document.getElementById("outrosFormulario").value;
+
+                  if (x === 'Outros') {
+                    var y =  document.getElementById("outroFormulario");
+                    y.classList.add("show-outros-FormularioRecurso");
+                    y.classList.toggle("hidden-outros-FormularioRecurso");
+                  }
+          }
+  </script>
+</body>
+</html>

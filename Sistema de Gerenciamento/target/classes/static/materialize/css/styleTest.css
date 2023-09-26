@@ -60,17 +60,11 @@
     display: none;
 }
 
-#inspetor{
+.show-outros-FormularioRecurso {
+    display: show;
+}
+.hidden-outros-FormularioRecurso {
     display: none;
 }
 
-#box{
-	/*definimos a largura do box*/
-	width:800px;
-	/* definimos a altura do box */
-	height:1000px;
-	/* definimos a cor de fundo do box */
-	background-color: GhostWhite;
-	/* definimos o quão arredondado irá ficar nosso box */
-	border-radius: 10px 20px;
-}
+

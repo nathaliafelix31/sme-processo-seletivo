@@ -3,6 +3,8 @@ package SistemaSME.Controllers;
 
 import SistemaSME.Models.FormularioRecurso;
 import SistemaSME.Models.ProcessoSeletivoCadastro;
+import SistemaSME.Repository.ComprovanteInscricao;
+import SistemaSME.Repository.Comprovantes;
 import SistemaSME.Repository.FormularioRecursoRepository;
 import SistemaSME.Repository.ProcessoSeletivoRepository;
 import jakarta.validation.Valid;
@@ -69,6 +71,9 @@ public class SmeController {
            return modelAndView;
        }
         processoSeletivoRepository.save(cadastro);
+        Comprovantes comprovantes = new ComprovanteInscricao(cadastro);
+        comprovantes.gerarCabecalho();
+        comprovantes.gerarCorpo();
         return "redirect:/processoSeletivo";
     }
 

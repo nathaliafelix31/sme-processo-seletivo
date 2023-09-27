@@ -79,20 +79,20 @@
 @keyFrames piscaPisca{
     0% {color: blue;}
     10% {color: blue;}
-    15% {color: black;}
-    20% {color: black;}
+    15% {color: Indigo;}
+    20% {color: Indigo;}
     25% {color: blue;}
     35% {color: blue;}
-    40% {color: black;}
-    45% {color: black;}
+    40% {color: Indigo;}
+    45% {color: Indigo;}
     50% {color: blue;}
     60% {color: blue;}
-    65% {color: black;}
-    70% {color: black;}
+    65% {color: Indigo;}
+    70% {color: Indigo;}
     75% {color: blue;}
     85% {color: blue;}
-    90% {color: black;}
-    95% {color: black;}
+    90% {color: Indigo;}
+    95% {color: Indigo;}
     100% {color: blue;}
 
 }

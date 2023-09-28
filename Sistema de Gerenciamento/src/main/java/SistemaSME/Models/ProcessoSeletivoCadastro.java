@@ -10,6 +10,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Getter
@@ -29,7 +30,7 @@ public class ProcessoSeletivoCadastro {
     @NotEmpty(message = "Data de Nascimento não pode ser vazio!")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private String dataNascimento;
+    private Date dataNascimento;
 
     @Column(unique = true)
     @CPF(message = "CPF inválido!")

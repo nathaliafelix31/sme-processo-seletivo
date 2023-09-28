@@ -49,22 +49,32 @@ public class ComprovanteInscricao implements Comprovantes {
         paragraphCandidato.setAlignment(Element.ALIGN_JUSTIFIED);
         paragraphCandidato.add(
                 new Chunk(
-                        "Número de Inscrição: "+ this.processoSeletivoCadastro.getCodigo(),
+                        "Nome do Candidato: "+ this.processoSeletivoCadastro.getNome()
+                                +"Número de Inscrição: "+ this.processoSeletivoCadastro.getCodigo()
+                                +"Cargo: "+ this.processoSeletivoCadastro.getVaga() + this.processoSeletivoCadastro.getDisciplina()
+                                +"Data"+ this.processoSeletivoCadastro.getDataCriacao(),
                         new Font(Font.BOLD,14)
                 )
         );
+
         this.documentoPDF.add(paragraphCandidato);
     }
 
     @Override
     public void gerarRodape() {
-
+        Paragraph paragrafoSessao = new Paragraph(" ");
+        paragrafoSessao.setAlignment(Element.ALIGN_CENTER);
+        this.documentoPDF.add(paragrafoSessao);
+        this.documentoPDF.add(new Paragraph(" "));
+        Paragraph pRodape = new Paragraph();
+        pRodape.setAlignment(Element.ALIGN_CENTER);
+        pRodape.add(new Chunk("Secretaria Municipal de Educação", new Font(Font.TIMES_ROMAN, 14)));
+        this.documentoPDF.add(pRodape);
     }
-
     @Override
     public void imprimir() {
         if(this.documentoPDF != null && this.documentoPDF.isOpen()){
-            this.documentoPDF.close();
+        //    this.documentoPDF.close();
         }
     }
 }

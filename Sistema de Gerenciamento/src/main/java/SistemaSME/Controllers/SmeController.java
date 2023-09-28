@@ -74,6 +74,8 @@ public class SmeController {
         Comprovantes comprovantes = new ComprovanteInscricao(cadastro);
         comprovantes.gerarCabecalho();
         comprovantes.gerarCorpo();
+        comprovantes.gerarRodape();
+        comprovantes.imprimir(); 
         return "redirect:/processoSeletivo";
     }
 

@@ -30,7 +30,7 @@ public class ProcessoSeletivoCadastro {
     @NotEmpty(message = "Data de Nascimento não pode ser vazio!")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date dataNascimento;
+    private String dataNascimento;
 
     @Column(unique = true)
     @CPF(message = "CPF inválido!")

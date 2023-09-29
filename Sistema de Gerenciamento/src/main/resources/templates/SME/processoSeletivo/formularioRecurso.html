@@ -5,23 +5,34 @@
     <link rel ="shortcut icon" href="https://www.itacarambi.mg.gov.br/img/logo_mobile.png?1678302142">
     <title>Formulário de Recurso</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="/materialize/css/style.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="/materialize/css/styleTest.css"  media="screen,projection"/>
-    <!--Let browser know website is optimized for mobile-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/css/styleTest.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-<body>
-    <nav>
-      <div class="nav-wrapper blue darken-1">
-        <a href="#!" class="brand-logo">Processo Seletivo 2024</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="/processoSeletivo"><i class="material-icons left">home</i>Página Inicial</a></li>
-        </ul>
-      </div>
-    </nav>
 
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Processo Seletivo 2024</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/processoSeletivo">Página Inicial</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar no site" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</br>
   <h4><center>Formulário para Interposição de Recurso</center></h4>
   <h6><center>Processo Seletivo Simplificado nº01/2024 - Decreto n.º 03, de 04 de Janeiro de 2024 - Para Formação de Cadastro de Reserva de Vagas</center></h6>
   <br/>
@@ -29,29 +40,37 @@
     <span th:text = "${m}"></span>
   </div>
   <br/>
-  <div class="row container" >
-    <form method="post" th:object="${formularioRecursoObj}">
+
+
+  <div class="row" >
+    <form class="container" method="post" th:object="${formularioRecursoObj}">
       <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Digite seu nome completo" id="full_name" type="text" class="validate" name="nomeCandidato">
-          <label for="full_name">Nome do Candidato</label>
+        <div class="mb-3 col-12">
+          <label for="full_name" class="form-label">Nome do Candidato</label>
+          <input placeholder="Digite seu nome completo" id="full_name" type="text" class="form-control validate" name="nomeCandidato">
         </div>
       </div>
 
       <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Digite seu número de inscrição" id="numeroInscricao" type="text" class="validate" name="numeroInscricao">
-          <label for="numeroInscricao">Número de Inscrição</label>
+        <div class="mb-3 col-3">
+          <label for="numeroInscricao" class="form-label">Número de Inscrição</label>
+          <input placeholder="Digite seu número de inscrição" id="numeroInscricao" type="text" class="form-control validate" name="numeroInscricao">
         </div>
 
-        <div class="input-field col s6">
-          <input placeholder="Documento de Identificação" id="documentoIdentificacao" type="text" class="validate" name="documentoIdentificacao">
-          <label for="documentoIdentificacao">Documento de Identificação</label>
+        <div class="mb-3 col-6">
+          <label for="documentoIdentificacao" class="form-label">Documento de Identificação</label>
+          <input placeholder="Documento de Identificação" id="documentoIdentificacao" type="text" class="form-control validate" name="documentoIdentificacao">
+        </div>
+
+        <div class="mb-3 col-3">
+          <label for="telefone" class="form-label">Telefone</label>
+          <input placeholder="Digite seu telefone" id="telefone" type="text" class="form-control validate" name="telefone">
         </div>
       </div>
         <div class="row">
-            <div class="input-field col s6" >
-              <select id="select" name="cargoPleitado" onchange="cargoPleitadoFunction()">
+            <div class="mb-3 col-6" >
+              <label>Cargo Pleitado</label>
+              <select class="form-select" id="select" onchange="cargoPleitadoFunction()" name="cargoPleitado">
                 <option value="" disabled selected>Selecione</option>
                 <option value="Profº. da Educação Infantil">Profº. da Educação Infantil</option>
                 <option value="Profº. dos Anos Iniciais do Ensino Fundamental">Profº. dos Anos Iniciais do Ensino Fundamental</option>
@@ -69,11 +88,11 @@
                 <option value="Motorista Escolar">Motorista Escolar</option>
                 <option value="Vigia Escolar">Vigia Escolar</option>
               </select>
-              <label>Cargo Pleitado</label>
             </div>
 
-            <div class="input-field col s3 hidden-pai" id="pai">
-              <select name="disciplina">
+            <div class="mb-3 col-3 hidden-pai" id="pai">
+              <label>Disciplina</label>
+              <select class="form-select" name="disciplina">
                 <option value="" disabled selected>Selecione</option>
                 <option value="Língua Portuguesa">Língua Portuguesa</option>
                 <option value="Matemática">Matemática</option>
@@ -84,77 +103,44 @@
                 <option value="Ensino Religioso">Ensino Religioso</option>
                 <option value="Arte">Arte</option>
               </select>
-              <label>Disciplina</label>
             </div>
-
-        <div class="input-field col s3">
-          <input placeholder="Digite seu telefone" id="telefone" type="text" class="validate" name="telefone">
-          <label for="telefone">Telefone</label>
-        </div>
       </div>
+
       <h6>À comissão Julgadora do Processo Seletivo</h6>
 
       <div class="row">
         <h6>O presente recurso refere-se a:</h6>
-        <div class="input-field col s12">
-          <form method="post">
-            <p>
-              <label >
-                <input id="dadosPessoais" type="checkbox" name="tipoRecurso" value="Dados Pessoais"/>
-                <span >Dados Pessoais</span>
-              </label>
-            </p>
-            <p>
-              <label >
-                <input id="escolaridade" type="checkbox" name="tipoRecurso" value="Escolaridade"/>
-                <span>Escolaridade</span>
-              </label>
-            </p>
-            <p>
-              <label >
-                <input id="tempoServiço" type="checkbox" name="tipoRecurso" value="Tempo de Serviço"/>
-                <span>Tempo de Serviço</span>
-              </label>
-            </p>
-            <p>
-              <label >
-                <input id="classificacao" type="checkbox" name="tipoRecurso" value="Classificação Preliminar"/>
-                <span >Classificação Preliminar</span>
-              </label>
-            </p>
-            <p>
-              <label >
-                <input id="outrosFormulario" type="checkbox" onchange="outrosFormularioFunction()" value="Outros"/>
-                <span>Outros</span>
-                <input type="text" id="outroFormulario" class="validate hidden-outros-FormularioRecurso" name="tipoRecurso">
-              </label>
-            </p>
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea placeholder="Apresentar argumentação lógica e consistente" id="textarea1" class="materialize-textarea" name="solicitacao"></textarea>
-                    <label for="textarea1">Fundamentação da Solicitação</label>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>
-          </form>
+        <div class="mb-3 form-check">
+
+          <label class="form-check-label" for="dadosPessoais">Dados Pessoais</label>
+          <input class="form-check-input" id="dadosPessoais" type="checkbox" value="Dados Pessoais" name="tipoRecurso"/></br>
+          <label class="form-check-label" for="escolaridade">Escolaridade</label>
+          <input class="form-check-input" id="escolaridade" type="checkbox"  value="Escolaridade" name="tipoRecurso"/></br>
+
+          <label class="form-check-label" for="tempoServiço">Tempo de Serviço</label>
+          <input class="form-check-input" id="tempoServiço" type="checkbox" value="Tempo de Serviço" name="tipoRecurso"/></br>
+
+          <label class="form-check-label" for="classificacao">Classificação Preliminar</label>
+          <input class="form-check-input" id="classificacao" type="checkbox" value="Classificação Preliminar" name="tipoRecurso"/></br>
+
+          <label class="form-check-label" for="outrosFormulario">Outros</label>
+          <input class="form-check-input" id="outrosFormulario" type="checkbox" onchange="outrosFormularioFunction()" value="Outros"/>
+          <input type="text" id="outroFormulario" class="form-control validate hidden-outros-FormularioRecurso" name="tipoRecurso">
         </div>
       </div>
 
+      <label >Fundamentação da Solicitação</label>
+      <div class="form-floating">
+        <textarea placeholder="Apresentar argumentação lógica e consistente" class="form-control" id="floatingTextarea2" style="height: 100px" name="solicitacao"></textarea>
+      </div></br>
+      <button type="submit" class="btn btn-primary" name="action">Enviar</button>
     </form>
-
-  </div>
+</div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+
   <script>
 
-          $(document).ready(function(){
-             $('select').formSelect();
-          });
 
           function cargoPleitadoFunction() {
             var x = document.getElementById("select").value;

@@ -75,7 +75,7 @@ public class SmeController {
         comprovantes.gerarCabecalho();
         comprovantes.gerarCorpo();
         comprovantes.gerarRodape();
-        comprovantes.imprimir(); 
+        comprovantes.imprimir();
         return "redirect:/processoSeletivo";
     }
 

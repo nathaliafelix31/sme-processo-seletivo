@@ -76,7 +76,7 @@ public class SmeController {
         comprovantes.gerarCorpo();
         comprovantes.gerarRodape();
         comprovantes.imprimir();
-        return "redirect:/processoSeletivo";
+       return "redirect:/processoSeletivo";
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/processoSeletivo/listarCandidatos")

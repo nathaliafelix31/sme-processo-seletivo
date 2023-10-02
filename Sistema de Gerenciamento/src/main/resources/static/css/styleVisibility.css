@@ -1,75 +1,64 @@
-body{
-    padding:30px;
-}
 
-.card{
-
-    margin-bottom:20px;
-    margin-right:10px
-
-
-
-}
 .show-pai {
     display: show;
 }
 .hidden-pai {
-    display: none;
+    display: none !important;
 }
 
-.show-pos-graduacao {
+.show-pos-graduacao  {
     display: show;
 }
 .hidden-pos-graduacao {
-    display: none;
+    display: none !important;
 }
 .show-habilitado {
     display: show;
 }
 .hidden-habilitado {
-    display: none;
+    display: none !important;
 }
 .show-licenciatura {
     display: show;
 }
 .hidden-licenciatura {
-    display: none;
+    display: none !important;
 }
 .show-bacharelado {
     display: show;
 }
 .hidden-bacharelado {
-    display: none;
+    display: none !important;
 }
 .show-nivel-medio {
     display: show;
 }
 .hidden-nivel-medio {
-    display: none;
+    display: none !important;
 }
 .show-medio-incompleto {
     display: show;
 }
 .hidden-medio-incompleto {
-    display: none;
+    display: none !important;
 }
 .show-fundamental-completo {
     display: show;
 }
 .hidden-fundamental-completo {
-    display: none;
+    display: none !important;
 }
 .show-fundamental-incompleto {
     display: show;
 }
 .hidden-fundamental-incompleto {
-    display: none;
+    display: none !important;
 }
 .show-outro {
     display: show;
 }
 .hidden-outro {
-    display: none;
+    display: none !important;
 }
 
 .show-outros-FormularioRecurso {

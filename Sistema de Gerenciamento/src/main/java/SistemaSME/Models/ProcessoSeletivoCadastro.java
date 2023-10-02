@@ -70,7 +70,7 @@ public class ProcessoSeletivoCadastro {
 
 
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @CreationTimestamp
     private LocalDateTime dataCriacao;
 

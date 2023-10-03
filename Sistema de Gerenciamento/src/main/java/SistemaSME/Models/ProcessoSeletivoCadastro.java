@@ -32,7 +32,7 @@ public class ProcessoSeletivoCadastro {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private String dataNascimento;
 
-    @Column(unique = true)
+    //@Column(unique = true)
     @CPF(message = "CPF inválido!")
     private String cpf;
     @NotEmpty(message = "RG não pode ser vazio!")

@@ -60,6 +60,12 @@
 .hidden-outro {
     display: none !important;
 }
+.show-aperfeicoamento{
+    display: show;
+}
+.hidden-aperfeicoamento{
+    display: none !important;
+}
 
 .show-outros-FormularioRecurso {
     display: show;

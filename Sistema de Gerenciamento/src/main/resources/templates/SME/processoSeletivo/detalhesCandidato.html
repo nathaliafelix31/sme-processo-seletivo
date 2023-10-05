@@ -36,10 +36,23 @@
     <p>Email: <span th:text="${candidato.email}"></span></p>
     <p>Telefone: <span th:text="${candidato.telefone}"></span></p>
     <p>Cargo Pleitado: <span th:text="${candidato.vaga}"></span></p>
-    <p>Disciplina: <span th:text="${candidato.disciplina}"></span></p>
-    <p>Escolaridade: Pós-graduado em <span th:text="${candidato.posGraduacao}"></span> Habilitado em <span th:text="${candidato.habilitado}"></span> <span th:text="${candidato.cursoNivelMedio}"></span></p>
-    <p>Aperfeiçoamento Profissional: <span th:text="${candidato.aperfeicoamentoProfissional}"></span></p>
-    <p>Carga Horaria: <span th:text="${candidato.cargaHoraria}"></span></p>
+    <p th:if="${candidato.disciplina != null}">Disciplina: <span th:text="${candidato.disciplina}"></span></p>
+    <p>Escolaridade: <span th:if="${candidato.posGraduacao != null}" th:text="${candidato.posGraduacao}">Pós-graduado em</span>
+      <span th:if="${candidato.habilitado != null}" th:text="${candidato.habilitado}">Habilitado em </span>
+      <span th:if="${candidato.licenciatura != null}" th:text="${candidato.licenciatura}">Cursando Licenciatura em </span>
+      <span th:if="${candidato.bacharelado != null}" th:text="${candidato.bacharelado}">Cursando Bacharelado em </span>
+      <span th:if="${candidato.cursoNivelMedio != null}" th:text="${candidato.cursoNivelMedio}">Curso Normal em Nível Médio: </span>
+      <span th:if="${candidato.ensinoMedioIncompleto != null}" th:text="${candidato.ensinoMedioIncompleto}">Ensino Médio Incompleto </span>
+      <span th:if="${candidato.escolaridadeMedioIncompleto != null}" th:text="${candidato.escolaridadeMedioIncompleto}"> </span>
+      <span th:if="${candidato.anoConclusaoEscolaridadeMedioIncompleto != null}" th:text="${candidato.anoConclusaoEscolaridadeMedioIncompleto}"> </span>
+      <span th:if="${candidato.ensinoFundamentalCompleto != null}" th:text="${candidato.ensinoFundamentalCompleto}">Ensino Fundamental Completo</span>
+      <span th:if="${candidato.ensinoFundamentalIncompleto != null}" th:text="${candidato.ensinoFundamentalIncompleto}"> </span>
+      <span th:if="${candidato.escolaridadeFundamentalIncompleto != null}" th:text="${candidato.escolaridadeFundamentalIncompleto}"> </span>
+      <span th:if="${candidato.anoConclusaoEscolaridadeFundamentalIncompleto != null}" th:text="${candidato.anoConclusaoEscolaridadeFundamentalIncompleto}"> </span>
+      <span th:if="${candidato.outro != null}" th:text="${candidato.outro}"> </span>
+
+    <p th:if="${candidato.aperfeicoamentoProfissional != null}">Aperfeiçoamento Profissional: <span th:text="${candidato.aperfeicoamentoProfissional}"></span></p>
+    <p th:if="${candidato.cargaHoraria != null}">Carga Horaria: <span th:text="${candidato.cargaHoraria}"></span></p>
     <p>Tempo de Servico: <span th:text="${candidato.tempoServico}"></span></p>
     <p>Data da Inscrição: <span th:text="${{candidato.dataCriacao}}"></span></p>
 
@@ -48,17 +61,12 @@
 
 
 <!--
-cursandoLicenciatura;
- cursandoBacharelado;
-cursoNivelMedio;
- ensinoMedioIncompleto;
-escolaridadeMedioIncompleto;
- anoConclusaoEscolaridadeMedioIncompleto;
- ensinoFundamentalCompleto;
- ensinoFundamentalIncompleto;
- escolaridadeFundamentalIncompleto;
-anoConclusaoEscolaridadeFundamentalIncompleto;
-outro;
+
+ ;
+ ;
+ ;
+;
+;
 ------------------------------------------ -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>

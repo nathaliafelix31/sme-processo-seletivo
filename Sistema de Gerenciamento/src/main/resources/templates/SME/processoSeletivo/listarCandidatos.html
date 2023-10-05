@@ -38,41 +38,43 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Social'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
-                <h5>Assistente Técnico da Educação Básica</h5>
+                </br>
+                <h5>Assistente Técnico em Educação Básica</h5>
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Técnico em Educação Básica'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Auxiliar de Serviço Escolar</h5>
                 <table class="table table-striped">
                     <thead>
@@ -80,21 +82,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviço Escolar'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
-
+                </br>
                 <h5>Auxiliar de Serviços Gerais</h5>
                 <table class="table table-striped">
                     <thead>
@@ -102,20 +104,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviços Gerais'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Especialista em Educação Básica</h5>
                 <table class="table table-striped">
                     <thead>
@@ -123,21 +126,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Especialista em Educação Básica'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
-
+                </br>
                 <h5>Inspetor de Alunos</h5>
                 <table class="table table-striped">
                     <thead>
@@ -145,20 +148,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Inspetor de Alunos'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Motorista Escolar</h5>
                 <table class="table table-striped">
                     <thead>
@@ -166,20 +170,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Motorista Escolar'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Nutricionista</h5>
                 <table class="table table-striped">
                     <thead>
@@ -187,20 +192,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Nutricionista'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Professor da Educação Básica</h5>
                 <table class="table table-striped">
                     <thead>
@@ -208,20 +214,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Professor da Educação Básica'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Psicólogo</h5>
                 <table class="table table-striped">
                     <thead>
@@ -229,20 +236,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Psicólogo'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Secretário Escolar</h5>
                 <table class="table table-striped">
                     <thead>
@@ -250,20 +258,21 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Secretário Escolar'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 
                 </table>
+                </br>
                 <h5>Vigia Escolar</h5>
                 <table class="table table-striped">
                     <thead>
@@ -271,16 +280,16 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Cargo Pleitado</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="candidato : ${candidatos}">
+                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Vigia Escolar'}">
                         <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                         <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                         <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-                        <td class="center"><span th:text="${candidato.vaga}">Cargo Pleitado</span></td>
+
                     </tr>
                     </tbody>
 

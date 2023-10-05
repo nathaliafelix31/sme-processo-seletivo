@@ -91,6 +91,7 @@ public class SmeController {
         ProcessoSeletivoCadastro candidato = processoSeletivoRepository.findByCodigo(codigo);
         ModelAndView mv = new ModelAndView("SME/processoSeletivo/detalhesCandidato");
         mv.addObject("candidato", candidato);
+
         return mv;
     }
 

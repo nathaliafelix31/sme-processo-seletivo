@@ -78,28 +78,87 @@
     display: none;
 }
 
-.textoPiscando{
-    color: blue;
-    animation: piscaPisca 5s infinite;
-
+.show-assistenteSocial {
+    display: show;
 }
-@keyFrames piscaPisca{
-    0% {color: blue;}
-    10% {color: blue;}
-    15% {color: Indigo;}
-    20% {color: Indigo;}
-    25% {color: blue;}
-    35% {color: blue;}
-    40% {color: Indigo;}
-    45% {color: Indigo;}
-    50% {color: blue;}
-    60% {color: blue;}
-    65% {color: Indigo;}
-    70% {color: Indigo;}
-    75% {color: blue;}
-    85% {color: blue;}
-    90% {color: Indigo;}
-    95% {color: Indigo;}
-    100% {color: blue;}
-
+.hidden-assistenteSocial {
+    display: none;
 }
+
+.show-atb {
+    display: show;
+}
+.hidden-atb {
+    display: none;
+}
+
+.show-ase {
+    display: show;
+}
+.hidden-ase {
+    display: none;
+}
+
+.show-asg {
+    display: show;
+}
+.hidden-asg {
+    display: none;
+}
+
+.show-eeb {
+    display: show;
+}
+.hidden-eeb {
+    display: none;
+}
+
+.show-ia {
+    display: show;
+}
+.hidden-ia {
+    display: none;
+}
+
+.show-me {
+    display: show;
+}
+.hidden-me {
+    display: none;
+}
+
+.show-nutricionista {
+    display: show;
+}
+.hidden-nutricionista {
+    display: none;
+}
+
+.show-psicologo {
+    display: show;
+}
+.hidden-psicologo {
+    display: none;
+}
+
+.show-peb {
+    display: show;
+}
+.hidden-peb {
+    display: none;
+}
+
+.show-se {
+    display: show;
+}
+.hidden-se {
+    display: none;
+}
+
+.show-ve {
+    display: show;
+}
+.hidden-ve {
+    display: none;
+}
+

@@ -19,6 +19,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="/processoSeletivo">Processo Seletivo</a></li>
+                <li class="breadcrumb-item"><a href="/processoSeletivo/listarCandidatosVagas">Listar Vagas</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Candidatos</li>
             </ol>
         </div>
@@ -27,284 +28,385 @@
 
 </br>
 
-   <div class="container">
+<div class="container">
         <div class="row">
             <div class="col">
                 <h4>Lista dos Candidatos Inscritos</h4></br>
-                <h5>Assistente Social</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                <div class="hidden-select">
+                    <div class="row">
+                        <div class="mb-3 col-6">
+                            <label>Selecione um Cargo</label>
+                            <select class="form-select" id="select" onchange="cargoPleitadoFunction()"></select>
+                        </div>
+                </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                    <div class="col-3 hidden-pai" id="pai">
+                        <label>Disciplina</label>
+                        <select class="form-select" id="disciplinaCargo" name="disciplina">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Língua Portuguesa">Língua Portuguesa</option>
+                            <option value="Matemática">Matemática</option>
+                            <option value="História">História</option>
+                            <option value="Geografia">Geografia</option>
+                            <option value="Ciências">Ciências</option>
+                            <option value="Inglês">Inglês</option>
+                            <option value="Ensino Religioso">Ensino Religioso</option>
+                            <option value="Arte">Arte</option>
+                        </select>
+                    </div>
+                </div>
 
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Social'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                <div class="hidden-assistenteSocial" id="assistenteSocial">
+                    <h5>Assistente Social</h5>
+                    <table class="table table-striped" >
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                    </tr>
-                    </tbody>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Social'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-                </table>
-                </br>
-                <h5>Assistente Técnico em Educação Básica</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="hidden-atb" id="atb">
+                    <h5>Assistente Técnico em Educação Básica</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Técnico em Educação Básica'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Técnico em Educação Básica'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </tbody>
+                <div class="hidden-ase" id="ase">
+                    <h5>Auxiliar de Serviço Escolar</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                </table>
-                </br>
-                <h5>Auxiliar de Serviço Escolar</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviço Escolar'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="hidden-asg" id="asg">
+                    <h5>Auxiliar de Serviços Gerais</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviço Escolar'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviços Gerais'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </tbody>
+                <div class="hidden-eeb" id="eeb">
+                    <h5>Especialista em Educação Básica</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                </table>
-                </br>
-                <h5>Auxiliar de Serviços Gerais</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Especialista em Educação Básica'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="hidden-ia" id="ia">
+                    <h5>Inspetor de Alunos</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviços Gerais'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Inspetor de Alunos'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </tbody>
+               <div class="hidden-me" id="me">
+                   <h5>Motorista Escolar</h5>
+                   <table class="table table-striped">
+                       <thead>
+                       <tr>
+                           <th>Código</th>
+                           <th>Nome</th>
+                           <th>CPF</th>
+                       </tr>
+                       </thead>
 
-                </table>
-                </br>
-                <h5>Especialista em Educação Básica</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                       <tbody>
+                       <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Motorista Escolar'}">
+                           <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                           <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                           <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="hidden-nutricionista" id="nutricionista">
+                    <h5>Nutricionista</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Especialista em Educação Básica'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Nutricionista'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </tbody>
+                <div class="hidden-peb" id="peb">
+                    <h5>Professor da Educação Básica</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                </table>
-                </br>
-                <h5>Inspetor de Alunos</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Profº. da Educação Infantil'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="hidden-psicologo" id="psicologo">
+                    <h5>Psicólogo</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Inspetor de Alunos'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Psicólogo'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </tbody>
+                <div class="hidden-se" id="se">
+                    <h5>Secretário Escolar</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                </table>
-                </br>
-                <h5>Motorista Escolar</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Secretário Escolar'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="hidden-ve" id="ve">
+                    <h5>Vigia Escolar</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
 
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Motorista Escolar'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-
-                    </tr>
-                    </tbody>
-
-                </table>
-                </br>
-                <h5>Nutricionista</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Nutricionista'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-
-                    </tr>
-                    </tbody>
-
-                </table>
-                </br>
-                <h5>Professor da Educação Básica</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Professor da Educação Básica'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-
-                    </tr>
-                    </tbody>
-
-                </table>
-                </br>
-                <h5>Psicólogo</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Psicólogo'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-
-                    </tr>
-                    </tbody>
-
-                </table>
-                </br>
-                <h5>Secretário Escolar</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Secretário Escolar'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-
-                    </tr>
-                    </tbody>
-
-                </table>
-                </br>
-                <h5>Vigia Escolar</h5>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Vigia Escolar'}">
-                        <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
-                        <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
-                        <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
-
-                    </tr>
-                    </tbody>
-
-                </table>
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Vigia Escolar'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
-
         </div>
-
     </div>
 
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+    function cargoPleitadoFunction() {
+          var x = document.getElementById("select").value;
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+          if (x === 'Profº. dos Anos Finais do Ensino Fundamental') {
+            var y =  document.getElementById("pai");
+            y.classList.add("show-pai");
+            y.classList.remove("hidden-pai");
+           }
+
+       }
+
+     const urlParams = new URLSearchParams(window.location.search);
+
+          const id = urlParams.get('id');
+
+          if (id === 'assistenteSocial'){
+                var y =  document.getElementById("assistenteSocial");
+                y.classList.add("show-assistenteSocial");
+                y.classList.remove("hidden-assistenteSocial");
+
+           }else if (id === 'atb'){
+                var y =  document.getElementById("atb");
+                y.classList.add("show-atb");
+                y.classList.remove("hidden-atb");
+
+           }else if (id === 'ase'){
+                var y =  document.getElementById("ase");
+                y.classList.add("show-ase");
+                y.classList.remove("hidden-ase");
+
+            }else if (id === 'asg'){
+                var y =  document.getElementById("asg");
+                y.classList.add("show-asg");
+                y.classList.remove("hidden-asg");
+
+            }else if (id === 'eeb'){
+                var y =  document.getElementById("eeb");
+                y.classList.add("show-eeb");
+                y.classList.remove("hidden-eeb");
+
+           }else if (id === 'me'){
+                var y =  document.getElementById("me");
+                y.classList.add("show-me");
+                y.classList.remove("hidden-me");
+
+           }else if (id === 'nutricionista'){
+                var y =  document.getElementById("nutricionista");
+                y.classList.add("show-nutricionista");
+                y.classList.remove("hidden-nutricionista");
+
+           }else if (id === 'psicologo'){
+                var y =  document.getElementById("psicologo");
+                y.classList.add("show-psicologo");
+                y.classList.remove("hidden-psicologo");
+
+           }else if (id === 've'){
+                var y =  document.getElementById("ve");
+                y.classList.add("show-ve");
+                y.classList.remove("hidden-ve");
+           }else if (id === 'peb'){
+
+                var y =  document.getElementById("select");
+                y.classList.add("show-select");
+                y.classList.remove("hidden-select");
+
+              const selectElement = document.getElementById('select');
+                var y =  document.getElementById("peb");
+                y.classList.add("show-peb");
+                y.classList.remove("hidden-peb");
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Profº. da Educação Infantil';
+              opcaoDinamica.textContent = 'Profº. da Educação Infantil';
+              selectElement.appendChild(opcaoDinamica);
+
+              const opcaoDinamica2 = document.createElement('option');
+              opcaoDinamica2.value = 'Profº. dos Anos Iniciais do Ensino Fundamental';
+              opcaoDinamica2.textContent = 'Profº. dos Anos Iniciais do Ensino Fundamental';
+              selectElement.appendChild(opcaoDinamica2);
+
+              const opcaoDinamica3 = document.createElement('option');
+              opcaoDinamica3.value = 'Profº. dos Anos Finais do Ensino Fundamental';
+              opcaoDinamica3.textContent = 'Profº. dos Anos Finais do Ensino Fundamental';
+              selectElement.appendChild(opcaoDinamica3);
+
+              const opcaoDinamica4 = document.createElement('option');
+              opcaoDinamica4.value = 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental';
+              opcaoDinamica4.textContent = 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental';
+              selectElement.appendChild(opcaoDinamica4);
+           }
+    </script>
 </body>
 </html>

@@ -162,3 +162,34 @@
     display: none;
 }
 
+.show-select {
+    display: show;
+}
+.hidden-select {
+    display: none;
+}
+
+.show-edu {
+    display: show;
+}
+.hidden-edu {
+    display: none;
+}
+.show-anosIniciais {
+    display: show;
+}
+.hidden-anosIniciais {
+    display: none;
+}
+.show-anosFinais {
+    display: show;
+}
+.hidden-anosFinais {
+    display: none;
+}
+.show-eduFisica {
+    display: show;
+}
+.hidden-eduFisica {
+    display: none;
+}

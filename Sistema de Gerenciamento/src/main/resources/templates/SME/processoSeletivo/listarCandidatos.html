@@ -32,29 +32,7 @@
         <div class="row">
             <div class="col">
                 <h4>Lista dos Candidatos Inscritos</h4></br>
-                <div class="hidden-select" id="cargo">
-                    <div class="row">
-                        <div class="mb-3 col-6">
-                            <label>Selecione um Cargo</label>
-                            <select class="form-select" id="select" onchange="cargoPleitadoFunction()"></select>
-                        </div>
-                </div>
 
-                    <div class="col-3 hidden-pai" id="pai">
-                        <label>Disciplina</label>
-                        <select class="form-select" id="disciplinaCargo" name="disciplina">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="Língua Portuguesa">Língua Portuguesa</option>
-                            <option value="Matemática">Matemática</option>
-                            <option value="História">História</option>
-                            <option value="Geografia">Geografia</option>
-                            <option value="Ciências">Ciências</option>
-                            <option value="Inglês">Inglês</option>
-                            <option value="Ensino Religioso">Ensino Religioso</option>
-                            <option value="Arte">Arte</option>
-                        </select>
-                    </div>
-                </div>
 
                 <div class="hidden-assistenteSocial" id="assistenteSocial">
                     <h5>Assistente Social</h5>
@@ -122,6 +100,7 @@
 
                 <div class="hidden-asg" id="asg">
                     <h5>Auxiliar de Serviços Gerais</h5>
+
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -225,8 +204,31 @@
                     </table>
                 </div>
 
-                <div class="hidden-peb" id="peb">
-                    <h5>Professor da Educação Básica</h5>
+                <div id="peb" class="hidden-peb">
+                    <h5>Professor da Educação Básica</h5></br>
+                    <div class="hidden-select" id="cargo">
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label>Selecione um Cargo</label>
+                                <select class="form-select" id="select" onchange="cargoPleitadoFunction()"></select>
+                            </div>
+
+                        <div class="col-3 hidden-pai" id="pai">
+                            <label>Disciplina</label>
+                            <select class="form-select" id="disciplinaCargo" name="disciplina">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Língua Portuguesa">Língua Portuguesa</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="História">História</option>
+                                <option value="Geografia">Geografia</option>
+                                <option value="Ciências">Ciências</option>
+                                <option value="Inglês">Inglês</option>
+                                <option value="Ensino Religioso">Ensino Religioso</option>
+                                <option value="Arte">Arte</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
                     <table class="table table-striped hidden-edu" id="edu">
                         <thead>
                         <tr>
@@ -365,7 +367,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>
@@ -373,6 +374,7 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
+
     function cargoPleitadoFunction() {
           var x = document.getElementById("select").value;
 
@@ -380,11 +382,11 @@
           if (x === 'Profº. dos Anos Finais do Ensino Fundamental') {
             var y =  document.getElementById("pai");
             y.classList.add("show-pai");
-            y.classList.remove("hidden-pai");
+            y.classList.toggle("hidden-pai");
 
             var z =  document.getElementById("anosFinais");
               z.classList.add("show-anosFinais");
-              z.classList.toggle("hidden-anosFinais");
+              z.classList.replace("hidden-anosFinais");
 
            }else if (x === 'Profº. da Educação Infantil') {
               var y =  document.getElementById("edu");
@@ -412,6 +414,7 @@
                 var y =  document.getElementById("assistenteSocial");
                 y.classList.add("show-assistenteSocial");
                 y.classList.remove("hidden-assistenteSocial");
+
 
            }else if (id === 'atb'){
                 var y =  document.getElementById("atb");

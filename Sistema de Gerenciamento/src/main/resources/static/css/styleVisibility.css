@@ -193,3 +193,61 @@
 .hidden-eduFisica {
     display: none;
 }
+
+.show-linguaPortuguesa {
+    display: show;
+}
+.hidden-linguaPortuguesa {
+    display: none;
+}
+
+.show-matematica {
+    display: show;
+}
+.hidden-matematica {
+    display: none;
+}
+
+.show-historia {
+    display: show;
+}
+.hidden-historia {
+    display: none;
+}
+
+.show-geografia {
+    display: show;
+}
+.hidden-geografia {
+    display: none;
+}
+
+.show-ciencias {
+    display: show;
+}
+.hidden-ciencias {
+    display: none;
+}
+
+.show-ingles {
+    display: show;
+}
+.hidden-ingles {
+    display: none;
+}
+
+.show-ensinoReligioso {
+    display: show;
+}
+.hidden-ensinoReligioso {
+    display: none;
+}
+
+.show-arte {
+    display: show;
+}
+.hidden-arte {
+    display: none;
+}
+
+

@@ -208,13 +208,27 @@
             icon: "success",
         });
     }
+     function showDisciplinaFunction(){
+                  let disciplina =  document.getElementById("edu");
+                  disciplina.classList.replace("hidden-pai", "show-pai");
+              }
+          function hiddenDisciplinaFunction(){
+                  let disciplina =  document.getElementById("edu");
+                  disciplina.classList.replace("show-pai", "hidden-pai");
+              }
+
        function cargoPleitadoFunction() {
           var x = document.getElementById("select").value;
 
           if (x === 'Profº. dos Anos Finais do Ensino Fundamental') {
-            var y =  document.getElementById("pai");
-            y.classList.add("show-pai");
-            y.classList.remove("hidden-pai");
+            let anosFinais =  document.getElementById("pai");
+            anosFinais.classList.replace("hidden-pai", "show-pai");
+
+           }else {
+            let anosFinais =  document.getElementById("pai");
+            anosFinais.classList.replace("show-pai", "hidden-pai");
+
+
            }
 
        }
@@ -230,9 +244,9 @@
               opcaoDinamica.value = 'Especialista em Educação';
               opcaoDinamica.textContent = 'Especialista em Educação';
               selectElement.appendChild(opcaoDinamica);
-              var y =  document.getElementById("aperfeicoamento");
-                    y.classList.add("show-aperfeicoamento");
-                    y.classList.remove("hidden-aperfeicoamento");
+              let aperfeicoamento =  document.getElementById("aperfeicoamento");
+                    aperfeicoamento.classList.replace("hidden-aperfeicoamento", "show-aperfeicoamento");
+
 
            }else if (id === 'peb'){
               const selectElement = document.getElementById('select');
@@ -257,9 +271,9 @@
               opcaoDinamica4.textContent = 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental';
               selectElement.appendChild(opcaoDinamica4);
 
-              var y =  document.getElementById("aperfeicoamento");
-                    y.classList.add("show-aperfeicoamento");
-                    y.classList.remove("hidden-aperfeicoamento");
+              let aperfeicoamentoProfissional =  document.getElementById("aperfeicoamento");
+                    aperfeicoamentoProfissional.classList.replace("hidden-aperfeicoamento", "show-aperfeicoamento");
+
 
            }else if (id === 'inspetor-alunos'){
               const selectElement = document.getElementById('select');
@@ -268,6 +282,7 @@
               opcaoDinamica.value = 'Inspetor de Alunos';
               opcaoDinamica.textContent = 'Inspetor de Alunos';
               selectElement.appendChild(opcaoDinamica);
+
           }else if (id === 'ase'){
               const selectElement = document.getElementById('select');
 

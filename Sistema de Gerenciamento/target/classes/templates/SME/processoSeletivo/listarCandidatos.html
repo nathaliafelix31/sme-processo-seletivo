@@ -213,7 +213,7 @@
                                 <select class="form-select" id="select" onchange="cargoPleitadoFunction()"></select>
                             </div>
 
-                        <div class="col-3 hidden-pai" id="pai">
+                        <div class="col-3 hidden-pai" onchange="disciplinaFunction()" id="pai">
                             <label>Disciplina</label>
                             <select class="form-select" id="disciplinaCargo" name="disciplina">
                                 <option value="" disabled selected>Selecione</option>
@@ -257,7 +257,7 @@
                         </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody >
                         <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Profº. dos Anos Iniciais do Ensino Fundamental'}">
                             <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                             <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
@@ -276,8 +276,64 @@
                         </tr>
                         </thead>
 
-                        <tbody>
-                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Profº. dos Anos Finais do Ensino Fundamental'}">
+                        <tbody class="hidden-linguaPortuguesa" id="portugues">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Língua Portuguesa'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-matematica" id="matematica">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Matemática'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-historia" id="historia">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'História'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-geografia" id="geografia">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Geografia'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-ciencias" id="ciencias">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Ciências'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-ingles" id="ingles">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Inglês'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-ensinoReligioso" id="ensinoReligioso">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Ensino Religioso'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-arte" id="arte">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Arte'}">
                             <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
                             <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
                             <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
@@ -374,101 +430,301 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
+            function showEduFunction(){
+                  let edu =  document.getElementById("edu");
+                  edu.classList.replace("hidden-edu", "show-edu");
+              }
 
-    function cargoPleitadoFunction() {
+            function showAnosIniciaisFunction(){
+                  let anosIniciais =  document.getElementById("anosIniciais");
+                  anosIniciais.classList.replace("hidden-anosIniciais", "show-anosIniciais");
+              }
+
+            function showDisciplinaFunction(){
+                  let disciplina =  document.getElementById("pai");
+                  disciplina.classList.replace("hidden-pai", "show-pai");
+              }
+
+            function showAnosFinaisFunction(){
+                  let anosFinais =  document.getElementById("anosFinais");
+                  anosFinais.classList.replace("hidden-anosFinais", "show-anosFinais");
+              }
+
+            function showEduFisicaFunction(){
+                  let eduFisica =  document.getElementById("eduFisica");
+                  eduFisica.classList.replace("hidden-eduFisica", "show-eduFisica");
+              }
+
+              function hiddenEduFunction(){
+                  let edu =  document.getElementById("edu");
+                  edu.classList.replace("show-edu", "hidden-edu");
+              }
+
+            function hiddenAnosIniciaisFunction(){
+                  let anosIniciais =  document.getElementById("anosIniciais");
+                  anosIniciais.classList.replace("show-anosIniciais", "hidden-anosIniciais");
+              }
+
+            function hiddenDisciplinaFunction(){
+                  let disciplina =  document.getElementById("pai");
+                  disciplina.classList.replace("show-pai", "hidden-pai");
+              }
+
+            function hiddenAnosFinaisFunction(){
+                  let anosFinais =  document.getElementById("anosFinais");
+                  anosFinais.classList.replace( "show-anosFinais", "hidden-anosFinais");
+              }
+
+            function hiddenEduFisicaFunction(){
+                  let eduFisica =  document.getElementById("eduFisica");
+                  eduFisica.classList.replace("show-eduFisica" ,"hidden-eduFisica");
+              }
+
+
+              function showLinguaPortuguesaFunction(){
+                  let linguaPortuguesa =  document.getElementById("portugues");
+                  linguaPortuguesa.classList.replace("hidden-linguaPortuguesa","show-linguaPortuguesa");
+              }
+              function showMatematicaFunction(){
+                  let matematica =  document.getElementById("matematica");
+                  matematica.classList.replace("hidden-matematica","show-matematica");
+              }
+              function showHistoriaFunction(){
+                  let historia =  document.getElementById("historia");
+                  historia.classList.replace("hidden-historia","show-historia");
+              }
+              function showGeografiaFunction(){
+                  let geografia =  document.getElementById("geografia");
+                  geografia.classList.replace("hidden-geografia","show-geografia");
+              }
+              function showCienciasFunction(){
+                  let ciencias =  document.getElementById("ciencias");
+                  ciencias.classList.replace("hidden-ciencias","show-ciencias");
+              }
+              function showInglesFunction(){
+                  let ingles =  document.getElementById("ingles");
+                  ingles.classList.replace("hidden-ingles","show-ingles");
+              }
+              function showEnsinoReligiosoFunction(){
+                  let ensinoReligioso =  document.getElementById("ensinoReligioso");
+                  ensinoReligioso.classList.replace("hidden-ensinoReligioso","show-ensinoReligioso");
+              }
+              function showArteFunction(){
+                  let arte =  document.getElementById("arte");
+                  arte.classList.replace("hidden-arte","show-arte");
+              }
+
+               function hiddenLinguaPortuguesaFunction(){
+                  let linguaPortuguesa =  document.getElementById("portugues");
+                  linguaPortuguesa.classList.replace("show-linguaPortuguesa" ,"hidden-linguaPortuguesa");
+              }
+              function hiddenMatematicaFunction(){
+                  let matematica =  document.getElementById("matematica");
+                  matematica.classList.replace("show-matematica" ,"hidden-matematica");
+              }
+              function hiddenHistoriaFunction(){
+                  let historia =  document.getElementById("historia");
+                  historia.classList.replace("show-historia" ,"hidden-historia");
+              }
+              function hiddenGeografiaFunction(){
+                  let geografia =  document.getElementById("geografia");
+                  geografia.classList.replace("show-geografia" ,"hidden-geografia");
+              }
+              function hiddenCienciasFunction(){
+                  let ciencias =  document.getElementById("ciencias");
+                  ciencias.classList.replace("show-ciencias" ,"hidden-ciencias");
+              }
+              function hiddenInglesFunction(){
+                  let ingles =  document.getElementById("ingles");
+                  ingles.classList.replace("show-ingles" ,"hidden-ingles");
+              }
+              function hiddenEnsinoReligiosoFunction(){
+                  let ensinoReligioso =  document.getElementById("ensinoReligioso");
+                  ensinoReligioso.classList.replace("show-ensinoReligioso" ,"hidden-ensinoReligioso");
+              }
+              function hiddenArteFunction(){
+                  let arte =  document.getElementById("arte");
+                  arte.classList.replace("show-arte" ,"hidden-arte");
+              }
+     function cargoPleitadoFunction() {
           var x = document.getElementById("select").value;
 
-
           if (x === 'Profº. dos Anos Finais do Ensino Fundamental') {
-            var y =  document.getElementById("pai");
-            y.classList.add("show-pai");
-            y.classList.toggle("hidden-pai");
-
-            var z =  document.getElementById("anosFinais");
-              z.classList.add("show-anosFinais");
-              z.classList.replace("hidden-anosFinais");
+                this.showAnosFinaisFunction();
+                this.showDisciplinaFunction();
+                this.hiddenEduFunction();
+                this.hiddenAnosIniciaisFunction();
+                this.hiddenEduFisicaFunction();
 
            }else if (x === 'Profº. da Educação Infantil') {
-              var y =  document.getElementById("edu");
-              y.classList.add("show-edu");
-              y.classList.toggle("hidden-edu");
+                   this.showEduFunction();
+                   this.hiddenAnosIniciaisFunction();
+                   this.hiddenAnosFinaisFunction();
+                   this.hiddenEduFisicaFunction();
+                   this.hiddenDisciplinaFunction();
 
            }else if (x === 'Profº. dos Anos Iniciais do Ensino Fundamental') {
-              var y =  document.getElementById("anosIniciais");
-              y.classList.add("show-anosIniciais");
-              y.classList.toggle("hidden-anosIniciais");
+              this.showAnosIniciaisFunction();
+              this.hiddenEduFunction();
+              this.hiddenAnosFinaisFunction();
+              this.hiddenEduFisicaFunction();
+              this.hiddenDisciplinaFunction();
 
            }else if (x === 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental') {
-              var y =  document.getElementById("eduFisica");
-              y.classList.add("show-eduFisica");
-              y.classList.toggle("hidden-eduFisica");
+              this.showEduFisicaFunction();
+              this.hiddenEduFunction();
+              this.hiddenAnosFinaisFunction();
+              this.hiddenAnosIniciaisFunction();
+              this.hiddenDisciplinaFunction();
+
+           }else if (x === 'Selecione') {
+              this.hiddenEduFisicaFunction();
+              this.hiddenEduFunction();
+              this.hiddenAnosFinaisFunction();
+              this.hiddenAnosIniciaisFunction();
+              this.hiddenDisciplinaFunction();
            }
 
        }
+
+        function disciplinaFunction(){
+            var x = document.getElementById("pai").value;
+
+            if (x === 'Língua Portuguesa') {
+                this.showLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Matemática') {]
+                this.showMatematicaFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'História') {
+                this.showHistoriaFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Geografia') {
+                this.showGeografiaFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Ciências') {
+                this.showCienciasFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Inglês') {
+                this.showInglesFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Ensino Religioso') {
+                this.showEnsinoReligiosoFunction();
+                tthis.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Arte') {
+                this.showArteFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+
+           }
+
+        }
 
      const urlParams = new URLSearchParams(window.location.search);
 
           const id = urlParams.get('id');
 
           if (id === 'assistenteSocial'){
-                var y =  document.getElementById("assistenteSocial");
-                y.classList.add("show-assistenteSocial");
-                y.classList.remove("hidden-assistenteSocial");
-
+                let assistenteSocial =  document.getElementById("assistenteSocial");
+                assistenteSocial.classList.replace("hidden-assistenteSocial", "show-assistenteSocial");
 
            }else if (id === 'atb'){
-                var y =  document.getElementById("atb");
-                y.classList.add("show-atb");
-                y.classList.remove("hidden-atb");
+                let atb =  document.getElementById("atb");
+                atb.classList.replace("hidden-atb", "show-atb");
 
            }else if (id === 'ase'){
-                var y =  document.getElementById("ase");
-                y.classList.add("show-ase");
-                y.classList.remove("hidden-ase");
+                let ase =  document.getElementById("ase");
+                ase.classList.add("hidden-ase", "show-ase");
 
             }else if (id === 'asg'){
-                var y =  document.getElementById("asg");
-                y.classList.add("show-asg");
-                y.classList.remove("hidden-asg");
+                let asg =  document.getElementById("asg");
+                asg.classList.replace("hidden-asg", "show-asg");
 
             }else if (id === 'eeb'){
-                var y =  document.getElementById("eeb");
-                y.classList.add("show-eeb");
-                y.classList.remove("hidden-eeb");
+                let eeb=  document.getElementById("eeb");
+                eeb.classList.replace("hidden-eeb", "show-eeb");
 
            }else if (id === 'me'){
-                var y =  document.getElementById("me");
-                y.classList.add("show-me");
-                y.classList.remove("hidden-me");
+                let me =  document.getElementById("me");
+                me.classList.replace("hidden-me", "show-me");
 
            }else if (id === 'nutricionista'){
-                var y =  document.getElementById("nutricionista");
-                y.classList.add("show-nutricionista");
-                y.classList.remove("hidden-nutricionista");
+                let nutricionista =  document.getElementById("nutricionista");
+                nutricionista.classList.replace("hidden-nutricionista", "show-nutricionista");
 
            }else if (id === 'psicologo'){
-                var y =  document.getElementById("psicologo");
-                y.classList.add("show-psicologo");
-                y.classList.remove("hidden-psicologo");
+                let psicologo =  document.getElementById("psicologo");
+                psicologo.classList.replace("hidden-psicologo", "show-psicologo");
 
            }else if (id === 've'){
-                var y =  document.getElementById("ve");
-                y.classList.add("show-ve");
-                y.classList.remove("hidden-ve");
-           }else if (id === 'peb'){
+                let ve =  document.getElementById("ve");
+                ve.classList.replace("hidden-ve", "show-ve");
 
-                var y =  document.getElementById("cargo");
-                y.classList.add("show-select");
-                y.classList.remove("hidden-select");
+           }else if (id === 'peb'){
+                let cargo =  document.getElementById("cargo");
+                cargo.classList.replace("hidden-select", "show-select");
 
               const selectElement = document.getElementById('select');
-                var y =  document.getElementById("peb");
-                y.classList.add("show-peb");
-                y.classList.remove("hidden-peb");
-
+                let peb =  document.getElementById("peb");
+                peb.classList.replace("hidden-peb", "show-peb");
 
               const opcao = document.createElement('option');
-              opcao.value = '';
+              opcao.value = 'Selecione';
               opcao.textContent = 'Selecione';
               selectElement.appendChild(opcao);
 

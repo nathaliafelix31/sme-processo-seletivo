@@ -75,4 +75,5 @@ public class ProcessoSeletivoCadastro {
     private LocalDateTime dataCriacao;
 
 
+
 }

@@ -3,7 +3,6 @@ package SistemaSME.Repository;
 import SistemaSME.Models.ProcessoSeletivoCadastro;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
@@ -17,19 +16,23 @@ public class ComprovanteInscricao implements Comprovantes {
         this.processoSeletivoCadastro = processoSeletivoCadastro;
         this.documentoPDF = new Document();
         try {
+
             PdfWriter.getInstance(this.documentoPDF, new FileOutputStream(comprovante));
             this.documentoPDF.open();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
     }
+
 
     @Override
     public void gerarCabecalho() {
         Paragraph paragrafoTitulo = new Paragraph();
         paragrafoTitulo.setAlignment(Element.ALIGN_CENTER);
         paragrafoTitulo.add(new Chunk("COMPROVANTE DE INSCRIÇÃO PARA CADASTRO DE RESERVA - 2024",
-                new Font(Font.HELVETICA, 24)
+                new Font(Font.HELVETICA, 18)
                 ));
         this.documentoPDF.add(paragrafoTitulo);
         this.documentoPDF.add(new Paragraph(" "));
@@ -51,8 +54,8 @@ public class ComprovanteInscricao implements Comprovantes {
                 new Chunk(
                         "Nome do Candidato: "+ this.processoSeletivoCadastro.getNome()
                                 +"Número de Inscrição: "+ this.processoSeletivoCadastro.getCodigo()
-                                +"Cargo: "+ this.processoSeletivoCadastro.getVaga() + this.processoSeletivoCadastro.getDisciplina()
-                                +"Data"+ this.processoSeletivoCadastro.getDataCriacao(),
+                                +"Cargo: "+ this.processoSeletivoCadastro.getVaga() +" "+ this.processoSeletivoCadastro.getDisciplina()
+                                +"Data "+ this.processoSeletivoCadastro.getDataCriacao(),
                         new Font(Font.BOLD,14)
                 )
         );
@@ -74,7 +77,7 @@ public class ComprovanteInscricao implements Comprovantes {
     @Override
     public void imprimir() {
         if(this.documentoPDF != null && this.documentoPDF.isOpen()){
-        //    this.documentoPDF.close();
+          this.documentoPDF.close();
         }
     }
 }

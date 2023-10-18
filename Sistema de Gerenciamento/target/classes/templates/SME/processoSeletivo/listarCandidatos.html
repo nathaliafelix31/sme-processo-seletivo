@@ -432,54 +432,53 @@
     <script>
             function showEduFunction(){
                   let edu =  document.getElementById("edu");
-                  edu.classList.replace("hidden-edu", "show-edu");
+                  edu.classList.replace("hidden-edu","show-edu");
               }
 
             function showAnosIniciaisFunction(){
                   let anosIniciais =  document.getElementById("anosIniciais");
-                  anosIniciais.classList.replace("hidden-anosIniciais", "show-anosIniciais");
+                  anosIniciais.classList.replace("hidden-anosIniciais","show-anosIniciais");
               }
 
             function showDisciplinaFunction(){
                   let disciplina =  document.getElementById("pai");
-                  disciplina.classList.replace("hidden-pai", "show-pai");
+                  disciplina.classList.replace("hidden-pai","show-pai");
               }
 
             function showAnosFinaisFunction(){
                   let anosFinais =  document.getElementById("anosFinais");
-                  anosFinais.classList.replace("hidden-anosFinais", "show-anosFinais");
+                  anosFinais.classList.replace("hidden-anosFinais","show-anosFinais");
               }
 
             function showEduFisicaFunction(){
                   let eduFisica =  document.getElementById("eduFisica");
-                  eduFisica.classList.replace("hidden-eduFisica", "show-eduFisica");
+                  eduFisica.classList.replace("hidden-eduFisica","show-eduFisica");
               }
 
               function hiddenEduFunction(){
                   let edu =  document.getElementById("edu");
-                  edu.classList.replace("show-edu", "hidden-edu");
+                  edu.classList.replace("show-edu","hidden-edu");
               }
 
             function hiddenAnosIniciaisFunction(){
                   let anosIniciais =  document.getElementById("anosIniciais");
-                  anosIniciais.classList.replace("show-anosIniciais", "hidden-anosIniciais");
+                  anosIniciais.classList.replace("show-anosIniciais","hidden-anosIniciais");
               }
 
             function hiddenDisciplinaFunction(){
                   let disciplina =  document.getElementById("pai");
-                  disciplina.classList.replace("show-pai", "hidden-pai");
+                  disciplina.classList.replace("show-pai","hidden-pai");
               }
 
             function hiddenAnosFinaisFunction(){
                   let anosFinais =  document.getElementById("anosFinais");
-                  anosFinais.classList.replace( "show-anosFinais", "hidden-anosFinais");
+                  anosFinais.classList.replace( "show-anosFinais","hidden-anosFinais");
               }
 
             function hiddenEduFisicaFunction(){
                   let eduFisica =  document.getElementById("eduFisica");
-                  eduFisica.classList.replace("show-eduFisica" ,"hidden-eduFisica");
+                  eduFisica.classList.replace("show-eduFisica","hidden-eduFisica");
               }
-
 
               function showLinguaPortuguesaFunction(){
                   let linguaPortuguesa =  document.getElementById("portugues");
@@ -588,7 +587,7 @@
        }
 
         function disciplinaFunction(){
-            var x = document.getElementById("pai").value;
+            var x = document.getElementById("disciplinaCargo").value;
 
             if (x === 'Língua Portuguesa') {
                 this.showLinguaPortuguesaFunction();
@@ -600,7 +599,7 @@
                 this.hiddenEnsinoReligiosoFunction();
                 this.hiddenArteFunction();
 
-           }else if (x === 'Matemática') {]
+           }else if (x === 'Matemática') {
                 this.showMatematicaFunction();
                 this.hiddenLinguaPortuguesaFunction();
                 this.hiddenHistoriaFunction();

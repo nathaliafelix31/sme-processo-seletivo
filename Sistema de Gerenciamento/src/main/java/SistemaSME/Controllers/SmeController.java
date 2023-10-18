@@ -7,6 +7,13 @@ import SistemaSME.Repository.ComprovanteInscricao;
 import SistemaSME.Repository.Comprovantes;
 import SistemaSME.Repository.FormularioRecursoRepository;
 import SistemaSME.Repository.ProcessoSeletivoRepository;
+import com.itextpdf.io.IOException;
+//import com.itextpdf.text.Document;
+
+import com.itextpdf.layout.Document;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,7 +67,7 @@ public class SmeController {
         return "/SME/processoSeletivo/formularioRecurso.html";
     }
 
-    @RequestMapping(value="/processoSeletivo/cadastrarCandidato", method= RequestMethod.POST )
+    @RequestMapping(value="/processoSeletivo/cadastrarCandidato", method= RequestMethod.POST)
     public Object salvarCandidato(@Valid ProcessoSeletivoCadastro cadastro, BindingResult bindingResult){
        if (bindingResult.hasErrors()){
            ModelAndView modelAndView = new ModelAndView("SME/processoSeletivo/cadastrarCandidato");
@@ -81,6 +88,7 @@ public class SmeController {
         comprovantes.gerarCorpo();
         comprovantes.gerarRodape();
         comprovantes.imprimir();
+
        return "redirect:/processoSeletivo";
     }
 
@@ -89,6 +97,7 @@ public class SmeController {
         ModelAndView mv = new ModelAndView("SME/processoSeletivo/listarCandidatos");
         Iterable<ProcessoSeletivoCadastro> listaCandidatos = processoSeletivoRepository.findAll();
         mv.addObject("candidatos", listaCandidatos);
+
         return mv;
     }
     @RequestMapping(value="/processoSeletivo/detalhesCandidato/{codigo}")
@@ -118,4 +127,5 @@ public class SmeController {
         formularioRecursoRepository.save(formulario);
         return "redirect:/processoSeletivo";
     }
+
 }

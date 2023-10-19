@@ -37,20 +37,20 @@
     <p>Telefone: <span th:text="${candidato.telefone}"></span></p>
     <p>Cargo Pleitado: <span th:text="${candidato.vaga}"></span></p>
     <p th:if="${candidato.disciplina != null}">Disciplina: <span th:text="${candidato.disciplina}"></span></p>
-    <p>Escolaridade: <span th:if="${candidato.posGraduacao != null}" th:text="${candidato.posGraduacao}">Pós-graduado em</span>
-      <span th:if="${candidato.habilitado != null}" th:text="${candidato.habilitado}">Habilitado em </span>
-      <span th:if="${candidato.cursandoLicenciatura != null}" th:text="${candidato.cursandoLicenciatura}">Cursando Licenciatura em </span>
-      <span th:if="${candidato.cursandoBacharelado != null}" th:text="${candidato.cursandoBacharelado}">Cursando Bacharelado em </span>
-      <span th:if="${candidato.cursoNivelMedio != null}" th:text="${candidato.cursoNivelMedio}">Curso Normal em Nível Médio: </span>
-      <span th:if="${candidato.ensinoMedioIncompleto != null}" th:text="${candidato.ensinoMedioIncompleto}">Ensino Médio Incompleto </span>
-      <span th:if="${candidato.ensinoMedioCompleto != null}" th:text="${candidato.ensinoMedioCompleto}">Ensino Médio Completo </span>
-      <span th:if="${candidato.escolaridadeMedioIncompleto != null}" th:text="${candidato.escolaridadeMedioIncompleto}"> </span>
-      <span th:if="${candidato.anoConclusaoEscolaridadeMedioIncompleto != null}" th:text="${candidato.anoConclusaoEscolaridadeMedioIncompleto}"> </span>
-      <span th:if="${candidato.ensinoFundamentalCompleto != null}" th:text="${candidato.ensinoFundamentalCompleto}">Ensino Fundamental Completo</span>
-      <span th:if="${candidato.ensinoFundamentalIncompleto != null}" th:text="${candidato.ensinoFundamentalIncompleto}"> </span>
-      <span th:if="${candidato.escolaridadeFundamentalIncompleto != null}" th:text="${candidato.escolaridadeFundamentalIncompleto}"> </span>
-      <span th:if="${candidato.anoConclusaoEscolaridadeFundamentalIncompleto != null}" th:text="${candidato.anoConclusaoEscolaridadeFundamentalIncompleto}"> </span>
-      <span th:if="${candidato.outro != null}" th:text="${candidato.outro}"> </span>
+    <p>Escolaridade:</p>
+      <p th:if="${candidato.posGraduacao != null}">Pós-graduado em: <span th:text="${candidato.posGraduacao}"></span></p>
+      <p th:if="${candidato.habilitado != null}">Habilitado em: <span th:text="${candidato.habilitado}"></span></p>
+      <p th:if="${candidato.cursandoLicenciatura != null}">Cursando Licenciatura em: <span th:text="${candidato.cursandoLicenciatura}"></span></p>
+      <p th:if="${candidato.cursandoBacharelado != null}">Cursando Bacharelado em: <span th:text="${candidato.cursandoBacharelado}"></span></p>
+      <p th:if="${candidato.cursoNivelMedio != null}">Curso Normal em Nível Médio: <span th:text="${candidato.cursoNivelMedio}"></span></p>
+    <p th:if="${candidato.ensinoMedioCompleto != null}"> <span th:text="${candidato.ensinoMedioCompleto}"></span></p>
+      <p th:if="${candidato.ensinoMedioIncompleto != null}"><span th:text="${candidato.ensinoMedioIncompleto}"></span> - Série
+      <span th:text="${candidato.escolaridadeMedioIncompleto}"></span> / Ano <span th:text="${candidato.anoConclusaoEscolaridadeMedioIncompleto}"></span> </p>
+      <p th:if="${candidato.ensinoFundamentalCompleto != null}" th:text="${candidato.ensinoFundamentalCompleto}"></p>
+      <p th:if="${candidato.ensinoFundamentalIncompleto != null}"><span th:text="${candidato.ensinoFundamentalIncompleto}"></span> - Série
+        <span th:text="${candidato.escolaridadeFundamentalIncompleto}"></span> / Ano
+        <span th:text="${candidato.anoConclusaoEscolaridadeFundamentalIncompleto}"></span></p>
+      <p th:if="${candidato.outro != null}" th:text="${candidato.outro}"> </p>
 
     <p th:if="${candidato.aperfeicoamentoProfissional != null}">Aperfeiçoamento Profissional: <span th:text="${candidato.aperfeicoamentoProfissional}"></span></p>
     <p th:if="${candidato.cargaHoraria != 0}">Carga Horaria: <span th:text="${candidato.cargaHoraria}"></span></p>
@@ -58,7 +58,7 @@
     <p>Data da Inscrição: <span th:text="${{candidato.dataCriacao}}"></span></p>
 
   </div>
-  <a href="/report" class="btn btn-primary">pdf</a>
+
 </div>
 
 

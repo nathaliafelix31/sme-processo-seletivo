@@ -52,10 +52,10 @@ public class ComprovanteInscricao implements Comprovantes {
         paragraphCandidato.setAlignment(Element.ALIGN_JUSTIFIED);
         paragraphCandidato.add(
                 new Chunk(
-                        "Nome do Candidato: "+ this.processoSeletivoCadastro.getNome()
-                                +"Número de Inscrição: "+ this.processoSeletivoCadastro.getCodigo()
-                                +"Cargo: "+ this.processoSeletivoCadastro.getVaga() +" "+ this.processoSeletivoCadastro.getDisciplina()
-                                +"Data "+ this.processoSeletivoCadastro.getDataCriacao(),
+                        " Nome do Candidato: "+ this.processoSeletivoCadastro.getNome()
+                                +" Número de Inscrição: "+ this.processoSeletivoCadastro.getCodigo()
+                                +" Cargo: "+ this.processoSeletivoCadastro.getVaga() +" "+ this.processoSeletivoCadastro.getDisciplina()
+                                +" Data: "+ this.processoSeletivoCadastro.getDataCriacao(),
                         new Font(Font.BOLD,14)
                 )
         );

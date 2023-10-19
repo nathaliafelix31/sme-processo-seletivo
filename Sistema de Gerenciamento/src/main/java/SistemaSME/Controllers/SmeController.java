@@ -7,13 +7,7 @@ import SistemaSME.Repository.ComprovanteInscricao;
 import SistemaSME.Repository.Comprovantes;
 import SistemaSME.Repository.FormularioRecursoRepository;
 import SistemaSME.Repository.ProcessoSeletivoRepository;
-import com.itextpdf.io.IOException;
-//import com.itextpdf.text.Document;
 
-import com.itextpdf.layout.Document;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,6 +59,18 @@ public class SmeController {
     public String cadastrarRecurso(){
 
         return "/SME/processoSeletivo/formularioRecurso.html";
+    }
+
+    @RequestMapping(value="/processoSeletivo/listaRecurso")
+    public String listaRecurso(){
+
+        return "/SME/processoSeletivo/listarRecursos.html";
+    }
+
+    @RequestMapping(value="/processoSeletivo/detalhesRecurso")
+    public String detalhesRecurso(){
+
+        return "/SME/processoSeletivo/detalhesRecurso.html";
     }
 
     @RequestMapping(value="/processoSeletivo/cadastrarCandidato", method= RequestMethod.POST)
@@ -126,6 +132,23 @@ public class SmeController {
         }
         formularioRecursoRepository.save(formulario);
         return "redirect:/processoSeletivo";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value="/processoSeletivo/listaRecurso")
+    public ModelAndView listarRecursos(){
+        ModelAndView mv = new ModelAndView("SME/processoSeletivo/listarRecursos");
+        Iterable<FormularioRecurso> listaRecurso = formularioRecursoRepository.findAll();
+        mv.addObject("recursos", listaRecurso);
+
+        return mv;
+    }
+    @RequestMapping(value="/processoSeletivo/detalhesRecurso/{codigo}")
+    public ModelAndView detalhesRecursos(@PathVariable("codigo") long codigo){
+        FormularioRecurso recurso = formularioRecursoRepository.findByCodigo(codigo);
+        ModelAndView mv = new ModelAndView("SME/processoSeletivo/detalhesRecurso");
+        mv.addObject("recurso", recurso);
+
+        return mv;
     }
 
 }

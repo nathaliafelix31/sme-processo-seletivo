@@ -75,6 +75,14 @@ a:link{
     animation: piscaPisca 5s infinite;
 
 }
+
+footer {
+
+	padding: 20px;
+	text-align: center;
+	margin-top: 50px;
+}
+
 @keyFrames piscaPisca{
     0% {color: blue;}
     10% {color: blue;}

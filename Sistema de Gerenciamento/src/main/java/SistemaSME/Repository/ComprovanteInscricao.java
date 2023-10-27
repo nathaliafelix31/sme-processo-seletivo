@@ -26,7 +26,6 @@ public class ComprovanteInscricao implements Comprovantes {
 
     }
 
-
     @Override
     public void gerarCabecalho() {
         Paragraph paragrafoTitulo = new Paragraph();
@@ -58,6 +57,7 @@ public class ComprovanteInscricao implements Comprovantes {
                                 +" Data: "+ this.processoSeletivoCadastro.getDataCriacao(),
                         new Font(Font.BOLD,14)
                 )
+
         );
 
         this.documentoPDF.add(paragraphCandidato);

@@ -38,21 +38,21 @@
     <p>Cargo Pleitado: <span th:text="${candidato.vaga}"></span></p>
     <p th:if="${candidato.disciplina != null}">Disciplina: <span th:text="${candidato.disciplina}"></span></p>
     <p>Escolaridade:</p>
-      <p th:if="${candidato.posGraduacao != null}">Pós-graduado em: <span th:text="${candidato.posGraduacao}"></span></p>
-      <p th:if="${candidato.habilitado != null}">Habilitado em: <span th:text="${candidato.habilitado}"></span></p>
-      <p th:if="${candidato.cursandoLicenciatura != null}">Cursando Licenciatura em: <span th:text="${candidato.cursandoLicenciatura}"></span></p>
-      <p th:if="${candidato.cursandoBacharelado != null}">Cursando Bacharelado em: <span th:text="${candidato.cursandoBacharelado}"></span></p>
-      <p th:if="${candidato.cursoNivelMedio != null}">Curso Normal em Nível Médio: <span th:text="${candidato.cursoNivelMedio}"></span></p>
-    <p th:if="${candidato.ensinoMedioCompleto != null}"> <span th:text="${candidato.ensinoMedioCompleto}"></span></p>
-      <p th:if="${candidato.ensinoMedioIncompleto != null}"><span th:text="${candidato.ensinoMedioIncompleto}"></span> - Série
-      <span th:text="${candidato.escolaridadeMedioIncompleto}"></span> / Ano <span th:text="${candidato.anoConclusaoEscolaridadeMedioIncompleto}"></span> </p>
-      <p th:if="${candidato.ensinoFundamentalCompleto != null}" th:text="${candidato.ensinoFundamentalCompleto}"></p>
-      <p th:if="${candidato.ensinoFundamentalIncompleto != null}"><span th:text="${candidato.ensinoFundamentalIncompleto}"></span> - Série
-        <span th:text="${candidato.escolaridadeFundamentalIncompleto}"></span> / Ano
-        <span th:text="${candidato.anoConclusaoEscolaridadeFundamentalIncompleto}"></span></p>
-      <p th:if="${candidato.outro != null}" th:text="${candidato.outro}"> </p>
+    <p  th:if="${not #strings.isEmpty(candidato.posGraduacao)}"><font color="red">Pós-graduado em: <span th:text="${candidato.posGraduacao}"></span></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.habilitado)}"><font color="red">Habilitado em: <span th:text="${candidato.habilitado}"></span></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.cursandoLicenciatura)}"><font color="red">Cursando Licenciatura em: <span th:text="${candidato.cursandoLicenciatura}"></span></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.cursandoBacharelado)}"><font color="red">Cursando Bacharelado em: <span th:text="${candidato.cursandoBacharelado}"></span></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.cursoNivelMedio)}"><font color="red">Curso Normal em Nível Médio: <span th:text="${candidato.cursoNivelMedio}"></span></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.ensinoMedioCompleto)}"><font color="red"> <span th:text="${candidato.ensinoMedioCompleto}"></span></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.ensinoMedioIncompleto)}"><font color="red"><span th:text="${candidato.ensinoMedioIncompleto}"></span> - Série
+      <span th:text="${candidato.escolaridadeMedioIncompleto}"></span> / Ano <span th:text="${candidato.anoConclusaoEscolaridadeMedioIncompleto}"></span></font> </p>
+    <p th:if="${not #strings.isEmpty(candidato.ensinoFundamentalCompleto)}" th:text="${candidato.ensinoFundamentalCompleto}"><font color="red"></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.ensinoFundamentalIncompleto)}"><font color="red"><span th:text="${candidato.ensinoFundamentalIncompleto}"></span> - Série
+      <span th:text="${candidato.escolaridadeFundamentalIncompleto}"></span> / Ano
+      <span th:text="${candidato.anoConclusaoEscolaridadeFundamentalIncompleto}"></span></font></p>
+    <p th:if="${not #strings.isEmpty(candidato.outro)}" th:text="${candidato.outro}"><font color="red"></font> </p>
 
-    <p th:if="${candidato.aperfeicoamentoProfissional != null}">Aperfeiçoamento Profissional: <span th:text="${candidato.aperfeicoamentoProfissional}"></span></p>
+    <p th:if="${not #strings.isEmpty(candidato.aperfeicoamentoProfissional)}">Aperfeiçoamento Profissional: <span th:text="${candidato.aperfeicoamentoProfissional}"></span></p>
     <p th:if="${candidato.cargaHoraria != 0}">Carga Horaria: <span th:text="${candidato.cargaHoraria}"></span></p>
     <p>Tempo de Servico: <span th:text="${candidato.tempoServico}"></span></p>
     <p>Data da Inscrição: <span th:text="${{candidato.dataCriacao}}"></span></p>

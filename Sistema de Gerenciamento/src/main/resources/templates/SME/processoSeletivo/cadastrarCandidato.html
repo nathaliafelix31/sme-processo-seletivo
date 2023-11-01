@@ -35,7 +35,6 @@
    <br/>
       <div th:each = "m : ${msg}" class="container">
         <span th:text = "${m}"></span>
-
       </div>
     <br/>
 
@@ -199,15 +198,19 @@
       <button type="submit" onclick="alerta()" class="btn btn-primary" name="action">Enviar</button>
      </form>
     </div>
-<!--    function alerta(){
-        Swal.fire({
-            title: "Inscrição Realizada com Sucesso!",
-            icon: "success",
-        });
-    } -->
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
 
+
+ function alerta(){
+        Swal.fire({
+            title: "Salvo com Sucesso!",
+            icon: "sucesso",
+        }).then((value) => {
+            window.location = "/processoSeletivo/vagas"
+        });
+    }
 
      function showDisciplinaFunction(){
                   let disciplina =  document.getElementById("edu");

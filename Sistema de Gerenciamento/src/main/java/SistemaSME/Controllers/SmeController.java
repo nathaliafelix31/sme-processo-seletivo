@@ -86,7 +86,7 @@ public class SmeController {
                msg.add(objectError.getDefaultMessage()); // vem das anotações @NotEmpity e outras
            }
             modelAndView.addObject("msg",msg);
-           return modelAndView;
+          return modelAndView;
        }
         processoSeletivoRepository.save(cadastro);
         Comprovantes comprovantes = new ComprovanteInscricao(cadastro);
@@ -95,7 +95,7 @@ public class SmeController {
         comprovantes.gerarRodape();
         comprovantes.imprimir();
 
-       return "redirect:/processoSeletivo";
+       return "redirect:/processoSeletivo/vagas";
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/processoSeletivo/listarCandidatos")

@@ -3,7 +3,6 @@ package SistemaSME.Controllers;
 
 import SistemaSME.Models.FormularioRecurso;
 import SistemaSME.Models.ProcessoSeletivoCadastro;
-import SistemaSME.Repository.ComprovanteInscricao;
 import SistemaSME.Repository.Comprovantes;
 import SistemaSME.Repository.FormularioRecursoRepository;
 import SistemaSME.Repository.ProcessoSeletivoRepository;
@@ -32,6 +31,23 @@ public class SmeController {
     public String sme(){
 
         return "/SME/index.html";
+    }
+    @RequestMapping(value="/login")
+    public String login(){
+
+        return "/SME/login.html";
+    }
+
+    @RequestMapping("/telaInicial")
+    public String admin(){
+
+        return "telaInicial";
+    }
+
+    @RequestMapping("/secure")
+    public String secure(){
+
+        return "secure";
     }
 
     @RequestMapping(value="/processoSeletivo")

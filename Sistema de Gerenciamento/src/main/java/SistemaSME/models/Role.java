@@ -1,4 +1,4 @@
-package SistemaSME.models;
+/*package SistemaSME.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -23,4 +23,4 @@ public class Role implements Serializable {
 
 
 
-}
+}*/

@@ -1,4 +1,4 @@
-package SistemaSME.services;
+/*package SistemaSME.services;
 
 import SistemaSME.models.Usuario;
 import SistemaSME.repositories.UsuarioRepository;
@@ -45,4 +45,4 @@ public class SSUserDetailsService implements UserDetailsService {
         }
         return authorities;
     }
-}
+}*/

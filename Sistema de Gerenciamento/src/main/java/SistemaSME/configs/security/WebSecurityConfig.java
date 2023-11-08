@@ -1,4 +1,4 @@
-package SistemaSME.configs.security;
+/*package SistemaSME.configs.security;
 
 
 import SistemaSME.services.SSUserDetailsService;
@@ -54,11 +54,11 @@ public class WebSecurityConfig {
                 .withUser("user")
                 .password(passwordEncoder().encode("1234")).authorities("USER");*/
 
-            return http.getSharedObject(AuthenticationManagerBuilder.class)
+    /*        return http.getSharedObject(AuthenticationManagerBuilder.class)
                     .userDetailsService(userDetailsService)
                     .passwordEncoder(passwordEncoder)
                     .and()
                     .build();
 
         }
-    }
+    }*/

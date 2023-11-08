@@ -1,4 +1,4 @@
-package SistemaSME.models;
+/*package SistemaSME.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -37,4 +37,4 @@ public class Usuario implements Serializable {
     }
 
 
-}
+}*/

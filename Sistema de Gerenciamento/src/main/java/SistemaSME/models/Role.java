@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 @Getter
 @Setter
 @Entity
-public class Role {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

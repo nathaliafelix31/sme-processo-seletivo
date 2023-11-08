@@ -18,6 +18,7 @@ import java.util.Set;
 @Service
 public class SSUserDetailsService implements UserDetailsService {
 
+
     private UsuarioRepository usuarioRepository;
 
     public SSUserDetailsService(UsuarioRepository usuarioRepository) {

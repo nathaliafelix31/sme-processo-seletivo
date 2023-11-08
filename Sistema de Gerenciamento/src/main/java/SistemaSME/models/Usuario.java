@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
 import javax.management.relation.Role;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
 @Setter
 @Getter
-public class Usuario {
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,13 +31,10 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
-    public Usuario(String s, String encode, String admin, String aSuper, boolean b, String admin1) {
-    }
-
-
     public void setSenha(String senha) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         this.senha = passwordEncoder.encode(senha);
     }
+
 
 }

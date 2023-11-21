@@ -114,6 +114,7 @@
 
       <label>Escolaridade do Candidato</label>
       <div class="mb-3 form-check">
+        <div class="hidden-curso">
         <label class="form-check-label" for="pos">Pós-Graduação</label>
         <input class="form-check-input" id="pos" type="checkbox" onchange="posGraduacaoFunction()" value="Pós-Graduação"/>
         <input type="text" id="pos-graduacao" class="hidden-pos-graduacao form-control validate" name="posGraduacao">
@@ -138,11 +139,12 @@
         <input class="form-check-input" id="nivelMedio" type="checkbox" onchange="nivelMedioFunction()" value="Curso Normal em Nível Médio com habilitação para a área de atuação" />
         <input type="text" id="curso-nivel-medio" class="form-control validate hidden-nivel-medio" name="cursoNivelMedio">
         </br>
+      </div>
 
+      <div class="hidden-ensino">
         <label class="form-check-label">Ensino Médio Completo</label>
         <input class="form-check-input" type="checkbox" name="ensinoMedioCompleto" value="Ensino Médio Completo"/>
         </br>
-
         <label class="form-check-label" for="medioIncompleto">Ensino Médio Incompleto</label>
         <input class="form-check-input" id="medioIncompleto" type="checkbox" onchange="medioIncompletoFunction()" name="ensinoMedioIncompleto" value="Ensino Médio Incompleto" />
         <div class="row hidden-medio-incompleto" id="ensino-medio-incompleto">
@@ -176,6 +178,7 @@
         <label class="form-check-label" for="outroEscolaridade">Outro</label>
         <input class="form-check-input" id="outroEscolaridade" type="checkbox" onchange="outroFunction()" value="Outro"/>
         <input  type="text" id="outro" class="form-control validate hidden-outro" name="outro">
+      </div>
       </div>
 
       <div class="hidden-aperfeicoamento row" id="aperfeicoamento">
@@ -241,9 +244,10 @@
 
        }
 
-       const urlParams = new URLSearchParams(window.location.search);
+          const urlParams = new URLSearchParams(window.location.search);
 
           const id = urlParams.get('id');
+
 
           if (id === 'especialista'){
               const selectElement = document.getElementById('select');
@@ -253,7 +257,7 @@
               opcaoDinamica.textContent = 'Especialista em Educação';
               selectElement.appendChild(opcaoDinamica);
               let aperfeicoamento =  document.getElementById("aperfeicoamento");
-                    aperfeicoamento.classList.replace("hidden-aperfeicoamento", "show-aperfeicoamento");
+              aperfeicoamento.classList.replace("hidden-aperfeicoamento", "show-aperfeicoamento");
 
 
            }else if (id === 'peb'){
@@ -280,7 +284,9 @@
               selectElement.appendChild(opcaoDinamica4);
 
               let aperfeicoamentoProfissional =  document.getElementById("aperfeicoamento");
-                    aperfeicoamentoProfissional.classList.replace("hidden-aperfeicoamento", "show-aperfeicoamento");
+              aperfeicoamentoProfissional.classList.replace("hidden-aperfeicoamento", "show-aperfeicoamento");
+              let escolaridade =  document.getElementById("escolaridade");
+              escolaridade.classList.replace("hidden-curso", "show-curso");
 
 
            }else if (id === 'inspetor-alunos'){
@@ -291,6 +297,7 @@
               opcaoDinamica.textContent = 'Inspetor de Alunos';
               selectElement.appendChild(opcaoDinamica);
 
+
           }else if (id === 'ase'){
               const selectElement = document.getElementById('select');
 
@@ -298,6 +305,7 @@
               opcaoDinamica.value = 'Auxiliar de Serviço Escolar';
               opcaoDinamica.textContent = 'Auxiliar de Serviço Escolar';
               selectElement.appendChild(opcaoDinamica);
+
 
           }else if (id === 'asg'){
               const selectElement = document.getElementById('select');
@@ -307,6 +315,7 @@
               opcaoDinamica.textContent = 'Auxiliar de Serviços Gerais';
               selectElement.appendChild(opcaoDinamica);
 
+
           }else if (id === 'atb'){
               const selectElement = document.getElementById('select');
 
@@ -314,6 +323,7 @@
               opcaoDinamica.value = 'Assistente Técnico em Educação Básica';
               opcaoDinamica.textContent = 'Assistente Técnico em Educação Básica';
               selectElement.appendChild(opcaoDinamica);
+
 
           }else if (id === 'secretario'){
               const selectElement = document.getElementById('select');
@@ -323,6 +333,7 @@
               opcaoDinamica.textContent = 'Secretário Escolar';
               selectElement.appendChild(opcaoDinamica);
 
+
           }else if (id === 'nutricionista'){
               const selectElement = document.getElementById('select');
 
@@ -330,6 +341,7 @@
               opcaoDinamica.value = 'Nutricionista';
               opcaoDinamica.textContent = 'Nutricionista';
               selectElement.appendChild(opcaoDinamica);
+
 
           }else if (id === 'psicologo'){
               const selectElement = document.getElementById('select');
@@ -339,6 +351,7 @@
               opcaoDinamica.textContent = 'Psicólogo';
               selectElement.appendChild(opcaoDinamica);
 
+
           }else if (id === 'assistente'){
               const selectElement = document.getElementById('select');
 
@@ -346,6 +359,7 @@
               opcaoDinamica.value = 'Assistente Social';
               opcaoDinamica.textContent = 'Assistente Social';
               selectElement.appendChild(opcaoDinamica);
+
 
           }else if (id === 'motorista'){
               const selectElement = document.getElementById('select');
@@ -355,6 +369,7 @@
               opcaoDinamica.textContent = 'Motorista Escolar';
               selectElement.appendChild(opcaoDinamica);
 
+
           }else if (id === 'vigia'){
               const selectElement = document.getElementById('select');
 
@@ -363,10 +378,12 @@
               opcaoDinamica.textContent = 'Vigia Escolar';
               selectElement.appendChild(opcaoDinamica);
 
+
           }
 
 
       function posGraduacaoFunction() {
+
                 var x = document.getElementById("pos").value;
 
                 if (x === 'Pós-Graduação') {
@@ -376,6 +393,7 @@
                 }
         }
       function habilitadoFunction() {
+
                 var x = document.getElementById("habilitadoEm").value;
 
                 if (x === 'Habilitado Em') {
@@ -387,6 +405,7 @@
       }
 
        function licenciaturaFunction() {
+
                 var x = document.getElementById("licenciatura").value;
 
                 if (x === 'Cursando Licenciatura') {
@@ -397,6 +416,7 @@
        }
 
         function bachareladoFunction() {
+
                 var x = document.getElementById("bacharelado").value;
 
                 if (x === 'Cursando Bacharelado') {
@@ -406,6 +426,7 @@
                 }
         }
         function nivelMedioFunction() {
+
                 var x = document.getElementById("nivelMedio").value;
 
                 if (x === 'Curso Normal em Nível Médio com habilitação para a área de atuação') {
@@ -416,9 +437,11 @@
         }
 
         function medioIncompletoFunction() {
+
                 var x = document.getElementById("medioIncompleto").value;
 
                 if (x === 'Ensino Médio Incompleto') {
+
                   var y =  document.getElementById("ensino-medio-incompleto");
                   y.classList.add("show-medio-incompleto");
                   y.classList.toggle("hidden-medio-incompleto");
@@ -444,6 +467,7 @@
         }
 
          function fundamentalIncompletoFunction() {
+
                 var x = document.getElementById("fundamentalIncompleto").value;
 
                 if (x === 'Ensino Fundamental Incompleto') {
@@ -471,6 +495,7 @@
                   }
                 }
         function outroFunction() {
+
                 var x = document.getElementById("outroEscolaridade").value;
 
                 if (x === 'Outro') {

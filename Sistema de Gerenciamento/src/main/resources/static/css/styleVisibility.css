@@ -249,5 +249,17 @@
 .hidden-arte {
     display: none;
 }
+.show-curso{
+    display: show !important;
+}
+.hidden-curso{
+    display: none !important;
+}
 
+.show-ensino{
+    display: show !important;
+}
+.hidden-ensino{
+    display: none !important;
+}
 

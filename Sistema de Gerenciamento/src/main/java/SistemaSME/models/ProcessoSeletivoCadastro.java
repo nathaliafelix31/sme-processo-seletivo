@@ -1,6 +1,7 @@
 package SistemaSME.models;
 
 import jakarta.persistence.*;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,6 +45,9 @@ public class ProcessoSeletivoCadastro implements Serializable {
     @NotEmpty(message = "Telefone não pode ser vazio!")
     private String telefone;
 
+    @NotEmpty(message = "Telefone não pode ser vazio!")
+    private String endereco;
+
     @NotEmpty(message = "Cargo não pode ser vazio!")
     private String vaga;
     private String disciplina;
@@ -73,7 +77,6 @@ public class ProcessoSeletivoCadastro implements Serializable {
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @CreationTimestamp
     private LocalDateTime dataCriacao;
-
 
 
 }

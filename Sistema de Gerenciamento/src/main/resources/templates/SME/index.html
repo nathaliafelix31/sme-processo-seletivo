@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <link rel ="shortcut icon" href="https://www.itacarambi.mg.gov.br/img/logo_mobile.png?1678302142">
+        <title>SME</title>
+        <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/css/styleVisibility.css"  media="screen,projection"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SME - Secretaria Municipal de Educação</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/processoSeletivo">Processo Seletivo</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Escolas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EM Amerindo Bezerra</a></li>
+                            <li><a class="dropdown-item" href="#">EM Carmem Maria Andrade Nogueira</a></li>
+                            <li><a class="dropdown-item" href="#">EM Dona Amélia Pacheco</a></li>
+                            <li><a class="dropdown-item" href="#">EM Noeme Sales Nascimento</a></li>
+                            <li><a class="dropdown-item" href="#">EM Osório Evangelista dos Santos</a></li>
+                            <li><a class="dropdown-item" href="#">EM Padre Diogo Feijó</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar no site" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.ifnmg.edu.br/administrator/2023/RIEONLIFE_-_WLC_BANNER_SITE_800X173PX1_novo.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.ifnmg.edu.br/arquivos/2023/IFintegra_-_banner_para_portal_3.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.ifnmg.edu.br/arquivos/2023/Cursos_Norteja_Banner.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div>
+    <script>
+
+                $(document).ready(function(){
+
+                    $('.carousel.carousel slider').carousel({
+                        fullWidth: true,
+                        duration: 200,
+                        indicators: true,
+                     });
+
+                     setInterval(() => {
+                        $('.carousel').carousel('next');
+                      }, 3000)
+                });
+
+           </script>
+    </body>
+    <footer><p>&copy; Secretaria Municipal de Educação. Todos os Direitos Reservados.</p></footer>
+
+</html>

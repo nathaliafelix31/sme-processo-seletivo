@@ -1,0 +1,265 @@
+
+.show-pai {
+    display: show;
+}
+.hidden-pai {
+    display: none !important;
+}
+
+.show-pos-graduacao  {
+    display: show;
+}
+.hidden-pos-graduacao {
+    display: none !important;
+}
+.show-habilitado {
+    display: show;
+}
+.hidden-habilitado {
+    display: none !important;
+}
+.show-licenciatura {
+    display: show;
+}
+.hidden-licenciatura {
+    display: none !important;
+}
+.show-bacharelado {
+    display: show;
+}
+.hidden-bacharelado {
+    display: none !important;
+}
+.show-nivel-medio {
+    display: show;
+}
+.hidden-nivel-medio {
+    display: none !important;
+}
+.show-medio-incompleto {
+    display: show;
+}
+.hidden-medio-incompleto {
+    display: none !important;
+}
+.show-fundamental-completo {
+    display: show;
+}
+.hidden-fundamental-completo {
+    display: none !important;
+}
+.show-fundamental-incompleto {
+    display: show;
+}
+.hidden-fundamental-incompleto {
+    display: none !important;
+}
+.show-outro {
+    display: show;
+}
+.hidden-outro {
+    display: none !important;
+}
+.show-aperfeicoamento{
+    display: show;
+}
+.hidden-aperfeicoamento{
+    display: none !important;
+}
+
+.show-outros-FormularioRecurso {
+    display: show;
+}
+.hidden-outros-FormularioRecurso {
+    display: none;
+}
+
+.hidden-vagas {
+    display: none;
+}
+
+.show-assistenteSocial {
+    display: show;
+}
+.hidden-assistenteSocial {
+    display: none;
+}
+
+.show-atb {
+    display: show;
+}
+.hidden-atb {
+    display: none;
+}
+
+.show-ase {
+    display: show;
+}
+.hidden-ase {
+    display: none;
+}
+
+.show-asg {
+    display: show;
+}
+.hidden-asg {
+    display: none;
+}
+
+.show-eeb {
+    display: show;
+}
+.hidden-eeb {
+    display: none;
+}
+
+.show-ia {
+    display: show;
+}
+.hidden-ia {
+    display: none;
+}
+
+.show-me {
+    display: show;
+}
+.hidden-me {
+    display: none;
+}
+
+.show-nutricionista {
+    display: show;
+}
+.hidden-nutricionista {
+    display: none;
+}
+
+.show-psicologo {
+    display: show;
+}
+.hidden-psicologo {
+    display: none;
+}
+
+.show-peb {
+    display: show;
+}
+.hidden-peb {
+    display: none;
+}
+
+.show-se {
+    display: show;
+}
+.hidden-se {
+    display: none;
+}
+
+.show-ve {
+    display: show;
+}
+.hidden-ve {
+    display: none;
+}
+
+.show-select {
+    display: show;
+}
+.hidden-select {
+    display: none;
+}
+
+.show-edu {
+    display: show;
+}
+.hidden-edu {
+    display: none;
+}
+.show-anosIniciais {
+    display: show;
+}
+.hidden-anosIniciais {
+    display: none;
+}
+.show-anosFinais {
+    display: show;
+}
+.hidden-anosFinais {
+    display: none;
+}
+.show-eduFisica {
+    display: show;
+}
+.hidden-eduFisica {
+    display: none;
+}
+
+.show-linguaPortuguesa {
+    display: show;
+}
+.hidden-linguaPortuguesa {
+    display: none;
+}
+
+.show-matematica {
+    display: show;
+}
+.hidden-matematica {
+    display: none;
+}
+
+.show-historia {
+    display: show;
+}
+.hidden-historia {
+    display: none;
+}
+
+.show-geografia {
+    display: show;
+}
+.hidden-geografia {
+    display: none;
+}
+
+.show-ciencias {
+    display: show;
+}
+.hidden-ciencias {
+    display: none;
+}
+
+.show-ingles {
+    display: show;
+}
+.hidden-ingles {
+    display: none;
+}
+
+.show-ensinoReligioso {
+    display: show;
+}
+.hidden-ensinoReligioso {
+    display: none;
+}
+
+.show-arte {
+    display: show;
+}
+.hidden-arte {
+    display: none;
+}
+.show-curso{
+    display: show ;
+}
+.hidden-curso{
+    display: none ;
+}
+
+.show-ensino{
+    display: show ;
+}
+.hidden-ensino{
+    display: none;
+}
+

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <link rel ="shortcut icon" href="https://www.itacarambi.mg.gov.br/img/logo_mobile.png?1678302142">
+    <title>Listar Candidatos</title>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/css/styleVisibility.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/processoSeletivo">Processo Seletivo</a></li>
+                <li class="breadcrumb-item"><a href="/processoSeletivo/listarCandidatosVagas">Listar Vagas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Candidatos</li>
+            </ol>
+        </div>
+    </div>
+</nav>
+
+</br>
+
+<div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+
+                    <h4>Lista dos Candidatos Inscritos</h4>
+                    <a href="/export-to-excel" class="btn btn-outline-success">Gerar Planilha <i class="bi bi-file-earmark-spreadsheet-fill"></i></a>
+                    <a href="/export-to-pdf" class="btn btn-outline-danger">Gerar PDF <i class="bi bi-filetype-pdf"></i></a>
+                    </br>
+                    </br>
+
+                </div>
+
+                <div class="hidden-assistenteSocial" id="assistenteSocial">
+                    <h5>Assistente Social</h5>
+                    <table class="table table-striped" >
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Social'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="hidden-atb" id="atb">
+                    <h5>Assistente Técnico em Educação Básica</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Assistente Técnico em Educação Básica'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hidden-ase" id="ase">
+                    <h5>Auxiliar de Serviço Escolar</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviço Escolar'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hidden-asg" id="asg">
+                    <h5>Auxiliar de Serviços Gerais</h5>
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Auxiliar de Serviços Gerais'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hidden-eeb" id="eeb">
+                    <h5>Especialista em Educação Básica</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Especialista em Educação Básica'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hidden-ia" id="ia">
+                    <h5>Inspetor de Alunos</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Inspetor de Alunos'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+               <div class="hidden-me" id="me">
+                   <h5>Motorista Escolar</h5>
+                   <table class="table table-striped">
+                       <thead>
+                       <tr>
+                           <th>Código</th>
+                           <th>Nome</th>
+                           <th>CPF</th>
+                       </tr>
+                       </thead>
+
+                       <tbody>
+                       <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Motorista Escolar'}">
+                           <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                           <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                           <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
+
+                <div class="hidden-nutricionista" id="nutricionista">
+                    <h5>Nutricionista</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Nutricionista'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="peb" class="hidden-peb">
+                    <h5>Professor da Educação Básica</h5></br>
+                    <div class="hidden-select" id="cargo">
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label>Selecione um Cargo</label>
+                                <select class="form-select" id="select" onchange="cargoPleitadoFunction()"></select>
+                            </div>
+
+                        <div class="col-3 hidden-pai" onchange="disciplinaFunction()" id="pai">
+                            <label>Disciplina</label>
+                            <select class="form-select" id="disciplinaCargo" name="disciplina">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Língua Portuguesa">Língua Portuguesa</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="História">História</option>
+                                <option value="Geografia">Geografia</option>
+                                <option value="Ciências">Ciências</option>
+                                <option value="Inglês">Inglês</option>
+                                <option value="Ensino Religioso">Ensino Religioso</option>
+                                <option value="Arte">Arte</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped hidden-edu" id="edu">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Profº. da Educação Infantil'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+
+                    <table class="table table-striped hidden-anosIniciais" id="anosIniciais">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody >
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Profº. dos Anos Iniciais do Ensino Fundamental'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+
+                    <table class="table table-striped hidden-anosFinais" id="anosFinais">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="hidden-linguaPortuguesa" id="portugues">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Língua Portuguesa'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-matematica" id="matematica">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Matemática'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-historia" id="historia">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'História'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-geografia" id="geografia">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Geografia'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-ciencias" id="ciencias">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Ciências'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-ingles" id="ingles">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Inglês'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-ensinoReligioso" id="ensinoReligioso">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Ensino Religioso'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                        <tbody class="hidden-arte" id="arte">
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.disciplina == 'Arte'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                    <table class="table table-striped hidden-eduFisica" id="eduFisica">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div class="hidden-psicologo" id="psicologo">
+                    <h5>Psicólogo</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Psicólogo'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hidden-se" id="se">
+                    <h5>Secretário Escolar</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Secretário Escolar'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hidden-ve" id="ve">
+                    <h5>Vigia Escolar</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="candidato : ${candidatos}" th:if="${candidato.vaga == 'Vigia Escolar'}">
+                            <td class="center"><span th:text="${candidato.codigo}">Código</span></td>
+                            <td class="center"><a th:href="${(#mvc.url('SC#detalhesCandidato').arg(0, candidato.codigo)).build()}"><span th:text="${candidato.nome}">Nome</span></a></td>
+                            <td class="center"><span th:text="${candidato.cpf}">CPF</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+            function showEduFunction(){
+                  let edu =  document.getElementById("edu");
+                  edu.classList.replace("hidden-edu","show-edu");
+              }
+
+            function showAnosIniciaisFunction(){
+                  let anosIniciais =  document.getElementById("anosIniciais");
+                  anosIniciais.classList.replace("hidden-anosIniciais","show-anosIniciais");
+              }
+
+            function showDisciplinaFunction(){
+                  let disciplina =  document.getElementById("pai");
+                  disciplina.classList.replace("hidden-pai","show-pai");
+              }
+
+            function showAnosFinaisFunction(){
+                  let anosFinais =  document.getElementById("anosFinais");
+                  anosFinais.classList.replace("hidden-anosFinais","show-anosFinais");
+              }
+
+            function showEduFisicaFunction(){
+                  let eduFisica =  document.getElementById("eduFisica");
+                  eduFisica.classList.replace("hidden-eduFisica","show-eduFisica");
+              }
+
+              function hiddenEduFunction(){
+                  let edu =  document.getElementById("edu");
+                  edu.classList.replace("show-edu","hidden-edu");
+              }
+
+            function hiddenAnosIniciaisFunction(){
+                  let anosIniciais =  document.getElementById("anosIniciais");
+                  anosIniciais.classList.replace("show-anosIniciais","hidden-anosIniciais");
+              }
+
+            function hiddenDisciplinaFunction(){
+                  let disciplina =  document.getElementById("pai");
+                  disciplina.classList.replace("show-pai","hidden-pai");
+              }
+
+            function hiddenAnosFinaisFunction(){
+                  let anosFinais =  document.getElementById("anosFinais");
+                  anosFinais.classList.replace( "show-anosFinais","hidden-anosFinais");
+              }
+
+            function hiddenEduFisicaFunction(){
+                  let eduFisica =  document.getElementById("eduFisica");
+                  eduFisica.classList.replace("show-eduFisica","hidden-eduFisica");
+              }
+
+              function showLinguaPortuguesaFunction(){
+                  let linguaPortuguesa =  document.getElementById("portugues");
+                  linguaPortuguesa.classList.replace("hidden-linguaPortuguesa","show-linguaPortuguesa");
+              }
+              function showMatematicaFunction(){
+                  let matematica =  document.getElementById("matematica");
+                  matematica.classList.replace("hidden-matematica","show-matematica");
+              }
+              function showHistoriaFunction(){
+                  let historia =  document.getElementById("historia");
+                  historia.classList.replace("hidden-historia","show-historia");
+              }
+              function showGeografiaFunction(){
+                  let geografia =  document.getElementById("geografia");
+                  geografia.classList.replace("hidden-geografia","show-geografia");
+              }
+              function showCienciasFunction(){
+                  let ciencias =  document.getElementById("ciencias");
+                  ciencias.classList.replace("hidden-ciencias","show-ciencias");
+              }
+              function showInglesFunction(){
+                  let ingles =  document.getElementById("ingles");
+                  ingles.classList.replace("hidden-ingles","show-ingles");
+              }
+              function showEnsinoReligiosoFunction(){
+                  let ensinoReligioso =  document.getElementById("ensinoReligioso");
+                  ensinoReligioso.classList.replace("hidden-ensinoReligioso","show-ensinoReligioso");
+              }
+              function showArteFunction(){
+                  let arte =  document.getElementById("arte");
+                  arte.classList.replace("hidden-arte","show-arte");
+              }
+
+               function hiddenLinguaPortuguesaFunction(){
+                  let linguaPortuguesa =  document.getElementById("portugues");
+                  linguaPortuguesa.classList.replace("show-linguaPortuguesa" ,"hidden-linguaPortuguesa");
+              }
+              function hiddenMatematicaFunction(){
+                  let matematica =  document.getElementById("matematica");
+                  matematica.classList.replace("show-matematica" ,"hidden-matematica");
+              }
+              function hiddenHistoriaFunction(){
+                  let historia =  document.getElementById("historia");
+                  historia.classList.replace("show-historia" ,"hidden-historia");
+              }
+              function hiddenGeografiaFunction(){
+                  let geografia =  document.getElementById("geografia");
+                  geografia.classList.replace("show-geografia" ,"hidden-geografia");
+              }
+              function hiddenCienciasFunction(){
+                  let ciencias =  document.getElementById("ciencias");
+                  ciencias.classList.replace("show-ciencias" ,"hidden-ciencias");
+              }
+              function hiddenInglesFunction(){
+                  let ingles =  document.getElementById("ingles");
+                  ingles.classList.replace("show-ingles" ,"hidden-ingles");
+              }
+              function hiddenEnsinoReligiosoFunction(){
+                  let ensinoReligioso =  document.getElementById("ensinoReligioso");
+                  ensinoReligioso.classList.replace("show-ensinoReligioso" ,"hidden-ensinoReligioso");
+              }
+              function hiddenArteFunction(){
+                  let arte =  document.getElementById("arte");
+                  arte.classList.replace("show-arte" ,"hidden-arte");
+              }
+     function cargoPleitadoFunction() {
+          var x = document.getElementById("select").value;
+
+          if (x === 'Profº. dos Anos Finais do Ensino Fundamental') {
+                this.showAnosFinaisFunction();
+                this.showDisciplinaFunction();
+                this.hiddenEduFunction();
+                this.hiddenAnosIniciaisFunction();
+                this.hiddenEduFisicaFunction();
+
+           }else if (x === 'Profº. da Educação Infantil') {
+                   this.showEduFunction();
+                   this.hiddenAnosIniciaisFunction();
+                   this.hiddenAnosFinaisFunction();
+                   this.hiddenEduFisicaFunction();
+                   this.hiddenDisciplinaFunction();
+
+           }else if (x === 'Profº. dos Anos Iniciais do Ensino Fundamental') {
+              this.showAnosIniciaisFunction();
+              this.hiddenEduFunction();
+              this.hiddenAnosFinaisFunction();
+              this.hiddenEduFisicaFunction();
+              this.hiddenDisciplinaFunction();
+
+           }else if (x === 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental') {
+              this.showEduFisicaFunction();
+              this.hiddenEduFunction();
+              this.hiddenAnosFinaisFunction();
+              this.hiddenAnosIniciaisFunction();
+              this.hiddenDisciplinaFunction();
+
+           }else if (x === 'Selecione') {
+              this.hiddenEduFisicaFunction();
+              this.hiddenEduFunction();
+              this.hiddenAnosFinaisFunction();
+              this.hiddenAnosIniciaisFunction();
+              this.hiddenDisciplinaFunction();
+           }
+
+       }
+
+        function disciplinaFunction(){
+            var x = document.getElementById("disciplinaCargo").value;
+
+            if (x === 'Língua Portuguesa') {
+                this.showLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Matemática') {
+                this.showMatematicaFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'História') {
+                this.showHistoriaFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Geografia') {
+                this.showGeografiaFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Ciências') {
+                this.showCienciasFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Inglês') {
+                this.showInglesFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Ensino Religioso') {
+                this.showEnsinoReligiosoFunction();
+                tthis.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenArteFunction();
+
+           }else if (x === 'Arte') {
+                this.showArteFunction();
+                this.hiddenLinguaPortuguesaFunction();
+                this.hiddenMatematicaFunction();
+                this.hiddenHistoriaFunction();
+                this.hiddenGeografiaFunction();
+                this.hiddenCienciasFunction();
+                this.hiddenInglesFunction();
+                this.hiddenEnsinoReligiosoFunction();
+
+           }
+
+        }
+
+     const urlParams = new URLSearchParams(window.location.search);
+
+          const id = urlParams.get('id');
+
+          if (id === 'assistenteSocial'){
+                let assistenteSocial =  document.getElementById("assistenteSocial");
+                assistenteSocial.classList.replace("hidden-assistenteSocial", "show-assistenteSocial");
+
+           }else if (id === 'atb'){
+                let atb =  document.getElementById("atb");
+                atb.classList.replace("hidden-atb", "show-atb");
+
+           }else if (id === 'ase'){
+                let ase =  document.getElementById("ase");
+                ase.classList.add("hidden-ase", "show-ase");
+
+            }else if (id === 'asg'){
+                let asg =  document.getElementById("asg");
+                asg.classList.replace("hidden-asg", "show-asg");
+
+            }else if (id === 'eeb'){
+                let eeb=  document.getElementById("eeb");
+                eeb.classList.replace("hidden-eeb", "show-eeb");
+
+           }else if (id === 'me'){
+                let me =  document.getElementById("me");
+                me.classList.replace("hidden-me", "show-me");
+
+           }else if (id === 'nutricionista'){
+                let nutricionista =  document.getElementById("nutricionista");
+                nutricionista.classList.replace("hidden-nutricionista", "show-nutricionista");
+
+           }else if (id === 'psicologo'){
+                let psicologo =  document.getElementById("psicologo");
+                psicologo.classList.replace("hidden-psicologo", "show-psicologo");
+
+           }else if (id === 've'){
+                let ve =  document.getElementById("ve");
+                ve.classList.replace("hidden-ve", "show-ve");
+
+           }else if (id === 'peb'){
+                let cargo =  document.getElementById("cargo");
+                cargo.classList.replace("hidden-select", "show-select");
+
+              const selectElement = document.getElementById('select');
+                let peb =  document.getElementById("peb");
+                peb.classList.replace("hidden-peb", "show-peb");
+
+              const opcao = document.createElement('option');
+              opcao.value = 'Selecione';
+              opcao.textContent = 'Selecione';
+              selectElement.appendChild(opcao);
+
+              const opcaoDinamica = document.createElement('option');
+              opcaoDinamica.value = 'Profº. da Educação Infantil';
+              opcaoDinamica.textContent = 'Profº. da Educação Infantil';
+              selectElement.appendChild(opcaoDinamica);
+
+              const opcaoDinamica2 = document.createElement('option');
+              opcaoDinamica2.value = 'Profº. dos Anos Iniciais do Ensino Fundamental';
+              opcaoDinamica2.textContent = 'Profº. dos Anos Iniciais do Ensino Fundamental';
+              selectElement.appendChild(opcaoDinamica2);
+
+              const opcaoDinamica3 = document.createElement('option');
+              opcaoDinamica3.value = 'Profº. dos Anos Finais do Ensino Fundamental';
+              opcaoDinamica3.textContent = 'Profº. dos Anos Finais do Ensino Fundamental';
+              selectElement.appendChild(opcaoDinamica3);
+
+              const opcaoDinamica4 = document.createElement('option');
+              opcaoDinamica4.value = 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental';
+              opcaoDinamica4.textContent = 'Profº. de Ed. Física para os Anos Iniciais e Finais Ens. Fundamental';
+              selectElement.appendChild(opcaoDinamica4);
+           }
+    </script>
+</body>
+</html>
